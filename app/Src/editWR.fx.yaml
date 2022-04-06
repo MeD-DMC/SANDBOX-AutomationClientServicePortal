@@ -1,0 +1,1071 @@
+editWR As screen:
+    Height: =Max(App.Height, App.DesignHeight)
+
+    Canvas2_2 As fluidGrid.fluidGridWithBlankCard:
+        BorderThickness: =0
+        Height: =Parent.Height
+        Width: =App.DesignWidth
+        X: =Parent.Width/2 - Self.Width/2
+        Y: =Header_6.Height
+        ZIndex: =1
+
+        DataCard2_2 As dataCard:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =0
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =1600
+            Width: =App.DesignWidth
+            WidthFit: =true
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            Main_2 As groupContainer.verticalAutoLayoutContainer:
+                Height: =1700
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMode: =LayoutMode.Auto
+                LayoutOverflowY: =LayoutOverflow.Scroll
+                Width: =Parent.Width
+                Y: |
+                    =0
+                ZIndex: =1
+
+                Container4_2 As groupContainer.verticalAutoLayoutContainer:
+                    Height: |
+                        =1200
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =section1_2.Height + section2_2.Height + submission_2.Height+250
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =1366
+                    ZIndex: =2
+
+                    section1_2 As groupContainer.manualLayoutContainer:
+                        AlignInContainer: =AlignInContainer.Start
+                        FillPortions: =0
+                        Height: =If(dd_medium_3.SelectedText.Value = "ADAPT (.html)", txtInput_adaptlink_1.Y+60,cb_isgnwt_2.Y+70)
+                        LayoutMinHeight: =
+                        LayoutMinWidth: =250
+                        Width: =Parent.Width
+                        ZIndex: =1
+
+                        Label2_15 As label:
+                            FontWeight: =FontWeight.Bold
+                            Height: =37
+                            TabIndex: =3
+                            Text: =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(langPack, Title="10").English, LookUp(langPack, Title="10").French)
+                            Width: =450
+                            X: =40
+                            Y: =6
+                            ZIndex: =2
+
+                        lbl_warning_5 As label:
+                            Color: =RGBA(168, 0, 0, 1)
+                            FontWeight: =FontWeight.Semibold
+                            Size: =12
+                            TabIndex: =4
+                            Text: =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(langPack, Title="11").English, LookUp(langPack, Title="11").French)
+                            Visible: =If(btn_Submit_4.DisplayMode=Disabled,true,false)
+                            Width: =850
+                            X: =101
+                            Y: =35
+                            ZIndex: =17
+
+                        RowTop1_2 As group:
+                            Height: =5
+                            Width: =5
+                            X: =60
+                            Y: =60
+                            ZIndex: =17
+
+                            Label1_70 As label:
+                                Height: =42
+                                TabIndex: =11
+                                Text: =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(langPack, Title="19").English, LookUp(langPack, Title="19").French)
+                                X: =617
+                                Y: =76
+                                ZIndex: =13
+
+                            Label1_71 As label:
+                                Height: =37
+                                TabIndex: =5
+                                Text: =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(langPack, Title="15").English, LookUp(langPack, Title="15").French)
+                                Width: =160
+                                X: =101
+                                Y: =78
+                                ZIndex: =14
+
+                            dateP_submitted_3 As datepicker:
+                                DisplayMode: =DisplayMode.View
+                                Format: ="yyyy-mm-dd"
+                                PaddingLeft: =5
+                                PaddingTop: =5
+                                TabIndex: =6
+                                Width: =140
+                                X: =269
+                                Y: =77
+                                ZIndex: =15
+
+                            dd_typeofwork_3 As dropdown:
+                                Default: ="Select / Choisir"
+                                DisplayMode: =DisplayMode.View
+                                Height: =43
+                                Items: =PlannedGallery.Selected.field_7
+                                OnChange: |-
+                                    =If(
+                                    
+                                    IsMatch(dd_typeofwork_3.SelectedText.Value,"Other",Contains) Or
+                                    
+                                    UpdateContext({mediumFlag:false}), UpdateContext({mediumFlag:true}));
+                                Reset: =btn_Clear_3.Pressed
+                                TabIndex: =12
+                                Width: =527
+                                X: =758
+                                Y: =75
+                                ZIndex: =16
+
+                        RowTop2_2 As group:
+                            Height: =5
+                            Width: =5
+                            X: =60
+                            Y: =60
+                            ZIndex: =17
+
+                            textInput_Requestor_3 As text:
+                                BorderColor: |
+                                    =RGBA(31, 124, 155, 1)
+                                Default: =PlannedGallery.Selected.field_1
+                                Height: =38
+                                Reset: =btn_Clear_3.Pressed
+                                TabIndex: =8
+                                Width: =300
+                                X: =269
+                                Y: =133
+                                ZIndex: =9
+
+                            Label1_73 As label:
+                                Height: =37
+                                TabIndex: =7
+                                Text: =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(langPack, Title="13").English, LookUp(langPack, Title="13").French)
+                                Width: =138
+                                X: =101
+                                Y: =134
+                                ZIndex: =10
+
+                            Label1_72 As label:
+                                Height: =42
+                                TabIndex: =13
+                                Text: =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(langPack, Title="18").English, LookUp(langPack, Title="18").French)
+                                Width: =97
+                                X: =617
+                                Y: =131
+                                ZIndex: =11
+
+                            dd_requestLan_3 As dropdown:
+                                BorderColor: |
+                                    =RGBA(31, 124, 155, 1)
+                                ChevronBackground: |
+                                    =RGBA(31, 124, 155, 1)
+                                ChevronHoverBackground: =ColorFade(RGBA(31, 124, 155, 1), -20%)
+                                Default: =PlannedGallery.Selected.field_9.Value
+                                HoverColor: =RGBA(255, 255, 255, 1)
+                                Items: =Choices('wrtracking-production-version-001'.request_language)
+                                Reset: =btn_Clear_3.Pressed
+                                SelectionFill: =RGBA(31, 124, 155, 1)
+                                TabIndex: =14
+                                Width: =160
+                                X: =758
+                                Y: =132
+                                ZIndex: =12
+
+                        RowTop3_2 As group:
+                            Height: =5
+                            Width: =5
+                            X: =60
+                            Y: =60
+                            ZIndex: =17
+
+                            Label1_74 As label:
+                                Height: =46
+                                TabIndex: =9
+                                Text: =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(langPack, Title="14").English, LookUp(langPack, Title="14").French)
+                                Width: =160
+                                X: =98
+                                Y: =183
+                                ZIndex: =1
+
+                            Label1_76 As label:
+                                Height: =37
+                                TabIndex: =17
+                                Text: =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(langPack, Title="16").English, LookUp(langPack, Title="16").French)
+                                Width: =144
+                                X: =960
+                                Y: =188
+                                ZIndex: =3
+
+                            dateP_dueDate_3 As datepicker:
+                                BorderColor: =RGBA(31, 124, 155, 1)
+                                DefaultDate: =PlannedGallery.Selected.field_5
+                                Format: ="yyyy-mm-dd"
+                                IconBackground: =RGBA(31, 124, 155, 1)
+                                Reset: =btn_Clear_3.Pressed
+                                TabIndex: =18
+                                Width: =158
+                                X: =1127
+                                Y: =186
+                                ZIndex: =4
+
+                            textInput_Bizline_3 As combobox:
+                                BorderColor: =RGBA(31, 124, 155, 1)
+                                ChevronBackground: =RGBA(31, 124, 155, 1)
+                                ChevronHoverBackground: =ColorFade(RGBA(31, 124, 155, 1), -20%)
+                                Default: =PlannedGallery.Selected.field_6
+                                DefaultSelectedItems: =PlannedGallery.Selected.field_6
+                                DisplayFields: =["Value"]
+                                HoverColor: =RGBA(255, 255, 255, 1)
+                                InputTextPlaceholder: ="Select the Business Line"
+                                IsSearchable: =false
+                                Items: =Choices('wrtracking-production-version-001'.businessLine)
+                                Reset: =btn_Clear_3.Pressed
+                                SearchFields: =["Value"]
+                                SearchItems: =[]
+                                SelectionFill: =RGBA(31, 124, 155, 1)
+                                SelectMultiple: =false
+                                TabIndex: =10
+                                Width: =300
+                                X: =269
+                                Y: =186
+                                ZIndex: =5
+
+                            Label1_75 As label:
+                                Height: =37
+                                TabIndex: =15
+                                Text: =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(langPack, Title="17").English, LookUp(langPack, Title="17").French)
+                                Tooltip: ="*"
+                                Width: =97
+                                X: =617
+                                Y: =188
+                                ZIndex: =6
+
+                            dd_medium_3 As dropdown:
+                                BorderColor: =RGBA(31, 124, 155, 1)
+                                ChevronBackground: =RGBA(31, 124, 155, 1)
+                                ChevronHoverBackground: =ColorFade(RGBA(31, 124, 155, 1), -20%)
+                                Default: =PlannedGallery.Selected.field_8.Value
+                                HoverColor: =RGBA(255, 255, 255, 1)
+                                HoverFill: =RGBA(31, 124, 155, 1)
+                                Items: =Choices('wrtracking-production-version-001'.medium)
+                                OnChange: |-
+                                    =If(
+                                    IsMatch(dd_medium_3.SelectedText.Value,"pptx",Contains) Or 
+                                    IsMatch(dd_medium_3.SelectedText.Value,"pps",Contains) Or
+                                    IsMatch(dd_medium_3.SelectedText.Value,"doc",Contains) Or
+                                    IsMatch(dd_medium_3.SelectedText.Value,"pdf",Contains) Or
+                                    IsMatch(dd_medium_3.SelectedText.Value,"xlsx",Contains),
+                                    UpdateContext({mediumFlag:false}), UpdateContext({mediumFlag:true}));
+                                OnSelect: =
+                                PressedFill: =RGBA(31, 124, 155, 1)
+                                Reset: =btn_Clear_3.Pressed
+                                SelectionFill: =RGBA(31, 124, 155, 1)
+                                TabIndex: =16
+                                Width: =160
+                                X: =758
+                                Y: =186
+                                ZIndex: =7
+
+                            as_medium_3 As label:
+                                Color: =RGBA(168, 0, 0, 1)
+                                Height: =36
+                                Text: ="*"
+                                Width: =67
+                                X: =694
+                                Y: =188
+                                ZIndex: =8
+
+                        cb_isaccessibility_2 As checkbox:
+                            BorderColor: =RGBA(31, 124, 155, 1)
+                            CheckboxBorderColor: =RGBA(31, 124, 155, 1)
+                            CheckmarkFill: =RGBA(31, 124, 155, 1)
+                            Default: =PlannedGallery.Selected.isAccessibility
+                            Height: =66
+                            Size: =11
+                            Text: =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(langPack, Title="20").English, LookUp(langPack, Title="20").French)
+                            Width: =773
+                            X: =98
+                            Y: =244
+                            ZIndex: =18
+
+                        cb_isgnwt_2 As checkbox:
+                            BorderColor: =RGBA(31, 124, 155, 1)
+                            CheckboxBorderColor: =RGBA(31, 124, 155, 1)
+                            CheckmarkFill: =RGBA(31, 124, 155, 1)
+                            Default: =PlannedGallery.Selected.IsGNWT
+                            Height: =67
+                            Size: =11
+                            Text: =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(langPack, Title="21").English, LookUp(langPack, Title="21").French)
+                            Width: =1187
+                            X: =98
+                            Y: =297
+                            ZIndex: =19
+
+                        Label1_6 As label:
+                            Height: =54
+                            Text: =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(langPack, Title="12").English, LookUp(langPack, Title="12").French)
+                            Width: =144
+                            X: =960
+                            Y: =126
+                            ZIndex: =21
+
+                        dd_projectstatus_1 As dropdown:
+                            Default: |
+                                =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(ProjectStatus, ID=5).Title, LookUp(ProjectStatus, ID=5).French)
+                            DisplayMode: =DisplayMode.View
+                            FontWeight: =FontWeight.Semibold
+                            Items: |-
+                                =[If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(ProjectStatus, ID=5).Title, LookUp(ProjectStatus, ID=5).French)
+                                ]
+                            Reset: =btn_Clear_5.Pressed
+                            Width: =158
+                            X: =1127
+                            Y: =130
+                            ZIndex: =22
+
+                        adapt_details_1 As group:
+                            Height: =5
+                            Width: =5
+                            X: =20
+                            Y: =-474
+                            ZIndex: =28
+
+                            Col1Title_10 As label:
+                                FontWeight: =FontWeight.Bold
+                                Height: =47
+                                TabIndex: =19
+                                Text: ="Adapt Details | Détails d'Adapt"
+                                Visible: =If(dd_medium_3.SelectedText.Value = "ADAPT (.html)", true,false)
+                                Width: =393
+                                X: =40
+                                Y: =372
+                                ZIndex: =25
+
+                            txtInput_adaptlink_1 As text:
+                                Default: =
+                                Height: =51
+                                Visible: =If(dd_medium_3.SelectedText.Value = "ADAPT (.html)", true,false)
+                                Width: =984
+                                X: =269
+                                Y: =413
+                                ZIndex: =26
+
+                            Label1_173 As label:
+                                Height: =57
+                                Size: =12
+                                TabIndex: =7
+                                Text: |-
+                                    ="Preview Link:              
+                                    Lien d'aperçu:"
+                                Visible: =If(dd_medium_3.SelectedText.Value = "ADAPT (.html)", true,false)
+                                Width: =160
+                                X: =96
+                                Y: =407
+                                ZIndex: =27
+
+                        Label1_9 As label:
+                            Color: =RGBA(109, 49, 162, 1)
+                            FontWeight: =FontWeight.Semibold
+                            Height: =36
+                            Size: =10
+                            Text: =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(langPack, Title="22").English, LookUp(langPack, Title="22").French)
+                            Visible: =false
+                            Width: =525
+                            X: =780
+                            Y: =259
+                            ZIndex: =33
+
+                        Group9 As group:
+                            Height: =5
+                            Width: =5
+                            X: =60
+                            Y: =60
+                            ZIndex: =34
+
+                            cb_isadhoc_1 As checkbox:
+                                Default: =PlannedGallery.Selected.isAdHoc
+                                Height: |
+                                    =0
+                                Size: =11
+                                Text: =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(langPack, Title="26").English, LookUp(langPack, Title="26").French)
+                                Visible: =false
+                                Width: =1032
+                                X: =101
+                                Y: =474
+                                ZIndex: =24
+
+                            dp_WP_Tab_1 As dropdown:
+                                Default: =PlannedGallery.Selected.field_52.Value
+                                Height: |
+                                    =0
+                                Items: =["Select / Choisir","Q1_2021","Q2_2021","Q3_2021","Q4_2021","Q1_2022","Q2_2022","Q3_2022","Q4_2022","Q1_2023","Q2_2023","Q3_2023","Q4_2023","Q1_2024","Q2_2024","Q3_2024","Q4_2024",]
+                                Visible: =false
+                                Width: =300
+                                X: =278
+                                Y: =426
+                                ZIndex: =28
+
+                            txtinput_wp_row_number_1 As text:
+                                Default: =PlannedGallery.Selected.field_53
+                                Height: |
+                                    =0
+                                HintText: ="Input the Work Plan Row Number"
+                                Visible: =false
+                                Width: =530
+                                X: =755
+                                Y: =423
+                                ZIndex: =29
+
+                            Label1_174 As label:
+                                Height: |
+                                    =0
+                                TabIndex: =7
+                                Text: =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(langPack, Title="24").English, LookUp(langPack, Title="24").French)
+                                Visible: =false
+                                Width: =160
+                                X: =101
+                                Y: =423
+                                ZIndex: =30
+
+                            Label1_175 As label:
+                                Height: |
+                                    =0
+                                TabIndex: =7
+                                Text: =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(langPack, Title="25").English, LookUp(langPack, Title="25").French)
+                                Visible: =false
+                                Width: =140
+                                X: =611
+                                Y: =423
+                                ZIndex: =31
+
+                            Label2_30 As label:
+                                FontWeight: =FontWeight.Bold
+                                Height: |
+                                    =0
+                                TabIndex: =3
+                                Text: =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(langPack, Title="23").English, LookUp(langPack, Title="23").French)
+                                Visible: =false
+                                Width: =450
+                                X: =72
+                                Y: =377
+                                ZIndex: =32
+
+                    section2_2 As groupContainer.manualLayoutContainer:
+                        AlignInContainer: =AlignInContainer.Start
+                        FillPortions: =0
+                        Height: =textInput_requestDetails_3.Y+textInput_requestDetails_3.Height+10
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        Width: =Parent.Width
+                        X: =40
+                        ZIndex: =2
+
+                        Col2Title_2 As label:
+                            FontWeight: =FontWeight.Bold
+                            Height: =42
+                            TabIndex: =26
+                            Text: =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(langPack, Title="46").English, LookUp(langPack, Title="46").French)
+                            Width: =471
+                            X: =726
+                            Y: =14
+                            ZIndex: =30
+
+                        Col1Title_2 As label:
+                            FontWeight: =FontWeight.Bold
+                            Height: =42
+                            TabIndex: =19
+                            Text: =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(langPack, Title="42").English, LookUp(langPack, Title="42").French)
+                            Width: =438
+                            X: =40
+                            Y: =14
+                            ZIndex: =31
+
+                        Row5_2 As group:
+                            Height: =5
+                            Width: =5
+                            X: =60
+                            Y: =60
+                            ZIndex: =31
+
+                            Label1_83 As label:
+                                TabIndex: =33
+                                Text: =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(langPack, Title="30").English, LookUp(langPack, Title="30").French)
+                                Tooltip: ="*"
+                                Width: =204
+                                X: =92
+                                Y: =332
+                                ZIndex: =8
+
+                            as_slnc_contentTitle_3 As label:
+                                Color: =RGBA(168, 0, 0, 1)
+                                Height: =27
+                                Text: ="*"
+                                Width: =44
+                                X: =272
+                                Y: =328
+                                ZIndex: =10
+
+                            slnc_contentTitleEN_3 As text:
+                                BorderColor: =RGBA(31, 124, 155, 1)
+                                Default: =PlannedGallery.Selected.field_17
+                                Height: =43
+                                TabIndex: =34
+                                Width: =950
+                                X: =342
+                                Y: =332
+                                ZIndex: =11
+
+                        Row1_2 As group:
+                            Height: =5
+                            Width: =5
+                            X: =60
+                            Y: =60
+                            ZIndex: =31
+
+                            Label1_78 As label:
+                                Height: =37
+                                TabIndex: =27
+                                Text: =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(langPack, Title="43").English, LookUp(langPack, Title="43").French)
+                                Tooltip: ="*"
+                                X: =779
+                                Y: =90
+                                ZIndex: =13
+
+                            Label1_77 As label:
+                                Height: =37
+                                TabIndex: =20
+                                Text: =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(langPack, Title="43").English, LookUp(langPack, Title="43").French)
+                                Tooltip: ="*"
+                                Width: =110
+                                X: =96
+                                Y: =90
+                                ZIndex: =20
+
+                            as_slnc_courseID_3 As label:
+                                Color: =RGBA(168, 0, 0, 1)
+                                Height: =36
+                                Text: ="*"
+                                Width: =67
+                                X: =193
+                                Y: =81
+                                ZIndex: =23
+
+                            as_sdd_courseID_3 As label:
+                                Color: =RGBA(168, 0, 0, 1)
+                                Height: =36
+                                Text: ="*"
+                                Visible: =If(mediumFlag=true,true,false)
+                                Width: =41
+                                X: =867
+                                Y: =80
+                                ZIndex: =25
+
+                            slnc_courseID_tf_2 As text:
+                                BorderColor: =RGBA(31, 124, 155, 1)
+                                Default: =PlannedGallery.Selected.field_13
+                                Height: =38
+                                HoverBorderColor: =RGBA(31, 124, 155, 1)
+                                HoverFill: =RGBA(31, 124, 155, 1)
+                                TabIndex: =21
+                                Width: =300
+                                X: =342
+                                Y: =84
+                                ZIndex: =28
+
+                            sdd_courseID_3 As text:
+                                BorderColor: =RGBA(31, 124, 155, 1)
+                                Default: =PlannedGallery.Selected.field_11
+                                Height: =38
+                                HoverBorderColor: =RGBA(31, 124, 155, 1)
+                                HoverFill: =RGBA(31, 124, 155, 1)
+                                Reset: =btn_Clear_3.Pressed
+                                TabIndex: =28
+                                Width: =300
+                                X: =992
+                                Y: =84
+                                ZIndex: =29
+
+                        Row2_2 As group:
+                            Height: =5
+                            Width: =5
+                            X: =60
+                            Y: =60
+                            ZIndex: =31
+
+                            sdd_classID_3 As text:
+                                BorderColor: =RGBA(31, 124, 155, 1)
+                                Default: =PlannedGallery.Selected.field_12
+                                Height: =38
+                                Reset: =btn_Clear_3.Pressed
+                                TabIndex: =30
+                                Width: =300
+                                X: =992
+                                Y: =150
+                                ZIndex: =18
+
+                            Label1_79 As label:
+                                Height: =37
+                                TabIndex: =22
+                                Text: =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(langPack, Title="44").English, LookUp(langPack, Title="44").French)
+                                Tooltip: ="*"
+                                X: =96
+                                Y: =150
+                                ZIndex: =19
+
+                            slnc_classID_3 As text:
+                                BorderColor: =RGBA(31, 124, 155, 1)
+                                Default: =PlannedGallery.Selected.field_14
+                                Height: =38
+                                OnChange: =
+                                Reset: |
+                                    =btn_Clear_3.Pressed
+                                TabIndex: =23
+                                Tooltip: ="*"
+                                Width: =300
+                                X: =342
+                                Y: =150
+                                ZIndex: =21
+
+                            Label1_80 As label:
+                                Height: =38
+                                TabIndex: =29
+                                Text: =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(langPack, Title="44").English, LookUp(langPack, Title="44").French)
+                                Tooltip: ="*"
+                                Width: =137
+                                X: =779
+                                Y: =150
+                                ZIndex: =22
+
+                            as_slnc_classID_3 As label:
+                                Color: =RGBA(168, 0, 0, 1)
+                                Height: =28
+                                Text: ="*"
+                                Width: =43
+                                X: =201
+                                Y: =142
+                                ZIndex: =24
+
+                            as_sdd_classID_3 As label:
+                                Color: =RGBA(168, 0, 0, 1)
+                                Height: =29
+                                Text: ="*"
+                                Visible: =If(mediumFlag=true,true,false)
+                                Width: =53
+                                X: =848
+                                Y: =141
+                                ZIndex: =27
+
+                        Row7_2 As group:
+                            Height: =5
+                            Width: =5
+                            X: =60
+                            Y: =60
+                            ZIndex: =31
+
+                            Label1_85 As label:
+                                Height: =52
+                                TabIndex: =38
+                                Text: =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(langPack, Title="45").English, LookUp(langPack, Title="45").French)
+                                Visible: =false
+                                Width: =248
+                                X: =92
+                                Y: =475
+                                ZIndex: =3
+
+                            slnc_scormID_3 As text:
+                                BorderColor: =RGBA(31, 124, 155, 1)
+                                Default: =//Gallery1.Selected.CourseFolderName
+                                Height: =41
+                                Reset: =btn_Clear_3.Pressed
+                                TabIndex: =39
+                                Visible: =false
+                                Width: =950
+                                X: =342
+                                Y: =486
+                                ZIndex: =4
+
+                        grp_request_details_2 As group:
+                            Height: =5
+                            Width: =5
+                            X: =77
+                            Y: =-614
+                            ZIndex: =32
+
+                            Label2_16 As label:
+                                FontWeight: =FontWeight.Bold
+                                Height: =37
+                                TabIndex: =40
+                                Text: =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(langPack, Title="32").English, LookUp(langPack, Title="32").French)
+                                Width: =250
+                                X: =36
+                                Y: =583
+                                ZIndex: =1
+
+                            textInput_requestDetails_3 As text:
+                                BorderColor: =RGBA(31, 124, 155, 1)
+                                Default: =PlannedGallery.Selected.field_37
+                                Height: =158
+                                Mode: =TextMode.MultiLine
+                                Reset: =btn_Clear_3.Pressed
+                                TabIndex: =41
+                                Width: =1204
+                                X: =88
+                                Y: =650
+                                ZIndex: =2
+
+                        Row3_2 As group:
+                            Height: =5
+                            Width: =5
+                            X: =100
+                            Y: =100
+                            ZIndex: =32
+
+                            lbl_specialchar_warning_2 As label:
+                                Color: =RGBA(255, 0, 0, 1)
+                                FontWeight: =FontWeight.Semibold
+                                Height: =45
+                                Size: =11
+                                Text: |-
+                                    =If(!IsBlank(slnc_courseNameEN_2.Text),If(
+                                        IsMatch(
+                                    slnc_courseNameEN_2.Text,
+                                    "^[A-Za-z0-9-_ ]+$"
+                                    ),"",
+                                    "Course Name shall not contain special characters! | Le nom du cours ne doit pas contenir de caractères spéciaux"
+                                    ))
+                                    //"Note: ""~ "" # % & * : < > ? / \ { | }."" are not supported"
+                                Visible: =false//true
+                                Width: =427
+                                X: =340
+                                Y: =282
+                                ZIndex: =7
+
+                            Label1_81 As label:
+                                Height: =37
+                                TabIndex: =24
+                                Text: =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(langPack, Title="28").English, LookUp(langPack, Title="28").French)
+                                Width: =181
+                                X: =96
+                                Y: =227
+                                ZIndex: =14
+
+                            slnc_courseNameEN_2 As text:
+                                BorderColor: =RGBA(31, 124, 155, 1)
+                                Default: =PlannedGallery.Selected.field_15
+                                Height: =108
+                                HoverBorderColor: =RGBA(31, 124, 155, 1)
+                                Mode: =TextMode.MultiLine
+                                Reset: =btn_Clear_3.Pressed
+                                TabIndex: =25
+                                Width: =300
+                                X: =342
+                                Y: =205
+                                ZIndex: =15
+
+                            Label1_82 As label:
+                                Height: =37
+                                TabIndex: =31
+                                Text: =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(langPack, Title="29").English, LookUp(langPack, Title="29").French)
+                                Width: =177
+                                X: =779
+                                Y: =227
+                                ZIndex: =16
+
+                            slnc_courseNameFR_2 As text:
+                                BorderColor: =RGBA(31, 124, 155, 1)
+                                Default: =PlannedGallery.Selected.field_16
+                                Height: =108
+                                Mode: =TextMode.MultiLine
+                                Reset: |
+                                    =btn_Clear_3.Pressed
+                                TabIndex: =32
+                                Width: =300
+                                X: =992
+                                Y: =205
+                                ZIndex: =17
+
+                        Group1 As group:
+                            Height: =5
+                            Width: =5
+                            X: =100
+                            Y: =100
+                            ZIndex: =33
+
+                            Label1_84 As label:
+                                TabIndex: =36
+                                Text: =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(langPack, Title="31").English, LookUp(langPack, Title="31").French)
+                                Tooltip: ="*"
+                                Width: =181
+                                X: =92
+                                Y: =408
+                                ZIndex: =6
+
+                            as_slnc_IntlFR_3 As label:
+                                Color: =RGBA(168, 0, 0, 1)
+                                Height: =36
+                                Text: ="*"
+                                Width: =67
+                                X: =259
+                                Y: =400
+                                ZIndex: =9
+
+                            slnc_contentTitleFR_3 As text:
+                                BorderColor: =RGBA(31, 124, 155, 1)
+                                Default: =PlannedGallery.Selected.field_18
+                                Height: =43
+                                TabIndex: =35
+                                Width: =950
+                                X: =342
+                                Y: =409
+                                ZIndex: =32
+
+                    submission_2 As groupContainer.manualLayoutContainer:
+                        FillPortions: =0
+                        Height: =180
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        ZIndex: =3
+
+                        btn_Submit_4 As button:
+                            DisplayMode: |-
+                                =If(
+                                    dd_requestLan_3.Selected.Value <>"FR",
+                                    If(
+                                        mediumFlag,
+                                        If(
+                                            IsBlank(slnc_courseID_tf_2) || IsBlank(slnc_classID_3) || IsBlank(sdd_courseID_3) || IsBlank(sdd_classID_3) ||  IsBlank(slnc_contentTitleEN_3) ,
+                                            DisplayMode.Disabled,
+                                            DisplayMode.Edit
+                                        ),
+                                        If(
+                                            IsBlank(slnc_courseID_tf_2)  || IsBlank(slnc_classID_3) || IsBlank(slnc_contentTitleEN_3) || IsBlank(slnc_contentTitleFR_3),
+                                            DisplayMode.Disabled,
+                                            DisplayMode.Edit
+                                        )
+                                    ),
+                                    If(
+                                        mediumFlag,
+                                        If(
+                                            IsBlank(slnc_courseID_tf_2)  || IsBlank(slnc_classID_3) || IsBlank(sdd_courseID_3) || IsBlank(sdd_classID_3) || IsBlank(slnc_contentTitleFR_3),
+                                            DisplayMode.Disabled,
+                                            DisplayMode.Edit
+                                        ),
+                                        If(
+                                            IsBlank(slnc_courseID_tf_2) || IsBlank(slnc_classID_3) || IsBlank(slnc_contentTitleFR_3) || IsBlank(slnc_contentTitleEN_3),
+                                            DisplayMode.Disabled,
+                                            DisplayMode.Edit
+                                        )
+                                    )
+                                )
+                            Fill: =RGBA(31, 124, 155, 1)
+                            FontWeight: =FontWeight.Normal
+                            Height: =47
+                            HoverFill: =ColorFade(RGBA(31, 124, 155, 1), -20%)
+                            OnSelect: |+
+                                =
+                                    Set(courseNameFolder, Concat(Filter(Split(slnc_courseNameEN_2.Text,""),IsMatch(Result,"^[a-zA-Z0-9\s]+")),Result));
+                                
+                                ClearCollect(formData,
+                                {
+                                    ID: PlannedGallery.Selected.ID,
+                                    Title:PlannedGallery.Selected.Title,
+                                    typeofwork: dd_typeofwork_3.Selected.Value,
+                                    businessLine: textInput_Bizline_3.Selected.Value,
+                                    medium:dd_medium_3.Selected.Value,
+                                    request_language:dd_requestLan_3.Selected.Value,
+                                    SLNC_CourseNameEN:If(IsBlank(slnc_courseNameEN_2),"",slnc_courseNameEN_2.Text),
+                                    SLNC_CourseNameFR:If(IsBlank(slnc_courseNameFR_2),"",slnc_courseNameFR_2.Text),
+                                    CourseFolderName:If(IsBlank(courseNameFolder),"",courseNameFolder),
+                                    SLNC_ClassID:If(IsBlank(slnc_classID_3), 0,Value(slnc_classID_3.Text)),
+                                    SLNC_CourseID:If(IsBlank(slnc_courseID_tf_2),0,Value(slnc_courseID_tf_2.Text)),
+                                    SDD_ClassID:If(IsBlank(sdd_classID_3),0,Value(sdd_classID_3.Text)),
+                                    SDD_CourseID:If(IsBlank(sdd_courseID_3),0,Value(sdd_courseID_3.Text)),
+                                    SLNC_ContentTitleEN: If(IsBlank(slnc_contentTitleEN_3),"",slnc_contentTitleEN_3.Text),
+                                    SLNC_ContentTitleFR:If(IsBlank(slnc_contentTitleFR_3),"",slnc_contentTitleFR_3.Text),
+                                    request_details: If(IsBlank(textInput_requestDetails_3),"",textInput_requestDetails_3.Text),
+                                    project_status_date:dateP_submitted_2.SelectedDate,
+                                    //projectStatus:{'@odata.type':"#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",Id: dd_projectstatus_1.Selected.Id,Value:dd_projectstatus_1.Selected.Value},
+                                    projectStatus: Text(LookUp(ProjectStatus,ID = 5).ID), 
+                                    scormID_EN:If(IsBlank(slnc_scormID_6), "", If(dd_requestLan_6.SelectedText.Value = "EN", slnc_scormID_6.Text,"")),
+                                    scormID_FR:If(IsBlank(slnc_scormID_6), "",If(dd_requestLan_6.SelectedText.Value = "FR", slnc_scormID_6.Text,"")),
+                                    isAccessibility:cb_isaccessibility_2.Value,
+                                    isGNWT:cb_isgnwt_2.Value,
+                                    isAdhoc: cb_isadhoc_1.Value,
+                                    due_date:dateP_dueDate_2.SelectedDate,
+                                    submitted_date:dateP_submitted_2.SelectedDate,
+                                    requestor_email:Office365Users.MyProfileV2().mail,
+                                    CustomA:dp_WP_Tab_1.SelectedText.Value,
+                                    CustomB:If(!IsBlank(txtinput_wp_row_number_1),txtinput_wp_row_number_1.Text,""),
+                                    CustomC:If(!IsBlank(txtInput_adaptlink_1), Substitute(txtInput_adaptlink_1.Text,"/preview/5dc446fd27f08836496b6b9e/","/#editor/")&"menu", " ")
+                                });
+                                'PRD-InitialWRApproval'.Run(JSON(formData, IndentFour));
+                                Reset(textInput_Bizline_3);Reset(textInput_Requestor_2);Reset(dd_typeofwork_3);Reset(dd_medium_3);
+                                Reset(dd_requestLan_3);Reset(slnc_courseNameEN_2);Reset(slnc_courseNameFR_2);Reset(slnc_contentTitleEN_3);Reset(slnc_contentTitleFR_3);Reset(textInput_requestDetails_3);
+                                Reset(dateP_submitted_2);Reset(dd_projectstatus_1);Reset(cb_isgnwt_2);Reset(cb_isaccessibility_2);Reset(dateP_dueDate_2);Reset(dateP_submitted_2);Reset(cb_isadhoc_1);Reset(dp_WP_Tab_1);
+                                Reset(txtinput_wp_row_number_1);Reset(txtInput_adaptlink_1);Reset(sdd_courseID_3);Reset(slnc_courseID_tf_2);Reset(slnc_classID_3);Reset(sdd_classID_3);
+                                Navigate(screen_complete_1,None);
+                                ClearCollect(numWRCol, (Filter('wrtracking-production-version-001',field_2=requestorEmail)));
+                                
+                                
+                                
+                            TabIndex: =44
+                            Text: =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(langPack, Title="56").English, LookUp(langPack, Title="56").French)
+                            Tooltip: ="Submit the Form"
+                            Width: =213
+                            X: =893
+                            Y: =103
+                            ZIndex: =1
+
+                        btn_Clear_3 As button:
+                            Color: =RGBA(31, 124, 155, 1)
+                            Fill: =RGBA(255, 255, 255, 1)
+                            Height: =47
+                            HoverFill: =ColorFade(RGBA(31, 124, 155, 1), -20%)
+                            OnSelect: =lbl_warning_6.Visible=false;Back();ClearCollect(numWRCol, (Filter('wrtracking-production-version-001',field_2=requestorEmail)));
+                            TabIndex: =43
+                            Text: =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(langPack, Title="34").English, LookUp(langPack, Title="34").French)
+                            Width: =213
+                            X: =256
+                            Y: =103
+                            ZIndex: =2
+
+                        lbl_warning_6 As label:
+                            Color: =RGBA(168, 0, 0, 1)
+                            FontWeight: =FontWeight.Semibold
+                            TabIndex: =42
+                            Text: =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(langPack, Title="11").English, LookUp(langPack, Title="11").French)
+                            Visible: =If(btn_Submit_4.DisplayMode=Disabled,true,false)
+                            Width: =850
+                            X: =57
+                            Y: =33
+                            ZIndex: =3
+
+                        btn_Clear_8 As button:
+                            Color: =RGBA(31, 124, 155, 1)
+                            Fill: =RGBA(255, 255, 255, 1)
+                            Height: =47
+                            HoverFill: =ColorFade(RGBA(31, 124, 155, 1), -20%)
+                            OnSelect: |-
+                                =Set(courseNameFolder, Concat(Filter(Split(slnc_courseNameEN_1.Text,""),IsMatch(Result,"^[a-zA-Z0-9\s]+")),Result));
+                                ClearCollect(dataForm,
+                                {  
+                                    ID: PlannedGallery.Selected.ID,
+                                    Title:PlannedGallery.Selected.Title,
+                                    typeofwork: dd_typeofwork_3.Selected.Value,
+                                    businessLine: textInput_Bizline_3.Selected.Value,
+                                    medium:dd_medium_3.Selected.Value,
+                                    request_language:dd_requestLan_3.Selected.Value,
+                                    SLNC_CourseNameEN:If(IsBlank(slnc_courseNameEN_2),"",slnc_courseNameEN_2.Text),
+                                    SLNC_CourseNameFR:If(IsBlank(slnc_courseNameFR_2),"",slnc_courseNameFR_2.Text),
+                                    CourseFolderName:If(IsBlank(courseNameFolder),"",courseNameFolder),
+                                    SLNC_ClassID:If(IsBlank(slnc_classID_3), 0,Value(slnc_classID_3.Text)),
+                                    SLNC_CourseID:If(IsBlank(slnc_courseID_tf_2),0,Value(slnc_courseID_tf_2.Text)),
+                                    SDD_ClassID:If(IsBlank(sdd_classID_3),0,Value(sdd_classID_3.Text)),
+                                    SDD_CourseID:If(IsBlank(sdd_courseID_3),0,Value(sdd_courseID_3.Text)),
+                                    SLNC_ContentTitleEN: If(IsBlank(slnc_contentTitleEN_3),"",slnc_contentTitleEN_3.Text),
+                                    SLNC_ContentTitleFR:If(IsBlank(slnc_contentTitleFR_3),"",slnc_contentTitleFR_3.Text),
+                                    request_details: If(IsBlank(textInput_requestDetails_3),"",textInput_requestDetails_3.Text),
+                                    project_status_date:dateP_submitted_2.SelectedDate,
+                                    //projectStatus:{'@odata.type':"#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",Id: dd_projectstatus_1.Selected.Id,Value:dd_projectstatus_1.Selected.Value},
+                                    projectStatus: Text(LookUp(ProjectStatus,ID = 5).ID), 
+                                    scormID_EN:If(IsBlank(slnc_scormID_6), "", If(dd_requestLan_6.SelectedText.Value = "EN", slnc_scormID_6.Text,"")),
+                                    scormID_FR:If(IsBlank(slnc_scormID_6), "",If(dd_requestLan_6.SelectedText.Value = "FR", slnc_scormID_6.Text,"")),
+                                    isAccessibility:cb_isaccessibility_2.Value,
+                                    isGNWT:cb_isgnwt_2.Value,
+                                    isAdhoc: cb_isadhoc_1.Value,
+                                    due_date:dateP_dueDate_2.SelectedDate,
+                                    submitted_date:dateP_submitted_2.SelectedDate,
+                                    requestor_email:Office365Users.MyProfileV2().mail,
+                                    CustomA:dp_WP_Tab_1.SelectedText.Value,
+                                    CustomB:txtinput_wp_row_number_1.Text,
+                                    CustomC:If(!IsBlank(txtInput_adaptlink_1), Substitute(txtInput_adaptlink_1.Text,"/preview/5dc446fd27f08836496b6b9e/","/#editor/")&"menu", " ")
+                                
+                                });
+                                'MeD-PRD-SaveWR'.Run(JSON(dataForm,IncludeBinaryData));
+                                
+                                Reset(dd_Bizline_2);Reset(textInput_Requestor_2);Reset(dd_typeofwork_3);Reset(dd_medium_3);
+                                Reset(dd_requestLan_3);Reset(slnc_courseNameEN_2);Reset(slnc_courseNameFR_2);Reset(slnc_contentTitleEN_3);Reset(slnc_contentTitleFR_3);Reset(textInput_requestDetails_3);
+                                Reset(dateP_submitted_2);Reset(dd_projectstatus_1);Reset(cb_isgnwt_2);Reset(cb_isaccessibility_2);Reset(dateP_dueDate_2);Reset(dateP_submitted_2);Reset(cb_isadhoc_1);
+                                Reset(dp_WP_Tab_1);Reset(sdd_courseID_3);Reset(slnc_courseID_tf_2);Reset(slnc_classID_3);Reset(sdd_classID_3);
+                                Reset(txtinput_wp_row_number_1);Reset(txtInput_adaptlink_1);
+                                
+                                Navigate(screen_complete, Transition.None);ClearCollect(numWRCol, (Filter('wrtracking-production-version-001',field_2=requestorEmail)));
+                            TabIndex: =43
+                            Text: =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(langPack, Title="55").English, LookUp(langPack, Title="55").French)
+                            Width: =213
+                            X: =574
+                            Y: =103
+                            ZIndex: =4
+
+    Header_6 As groupContainer.horizontalAutoLayoutContainer:
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =240
+        LayoutAlignItems: =LayoutAlignItems.Center
+        LayoutMode: =LayoutMode.Auto
+        PaddingRight: =75
+        Width: =Parent.Width
+        ZIndex: =3
+
+        FullHeaderContainer_4 As groupContainer:
+            AlignInContainer: =AlignInContainer.Start
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =240
+            LayoutMinHeight: =200
+            LayoutMinWidth: =250
+            Width: =Parent.Width
+            ZIndex: =1
+
+            "'header-edit' As Header":
+                SelectedLanguage: =lanFlag
+
+            Icon1_16 As icon.BackArrow:
+                Color: =RGBA(31, 124, 155, 1)
+                Height: =57
+                Icon: =Icon.BackArrow
+                OnSelect: =Back();
+                PaddingLeft: =15
+                Width: =80
+                Y: =163
+                ZIndex: =2
+
+            Label7_2 As label:
+                Color: =RGBA(31, 124, 155, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =35
+                OnSelect: =Back()
+                Size: =22
+                Text: =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(langPack, Title="41").English, LookUp(langPack, Title="41").French)
+                Width: =178
+                X: =91
+                Y: =174
+                ZIndex: =3
+
+            dd_lan_selector_2 As dropdown:
+                ChevronBackground: =RGBA(31, 124, 155, 1)
+                Default: =lanFlag
+                Height: =32
+                Items: =["EN","FR"]
+                OnChange: =Set(lanFlag, dd_lan_selector_2.SelectedText.Value)
+                PaddingBottom: =5
+                PaddingLeft: =5
+                PaddingRight: =5
+                PaddingTop: =5
+                SelectionFill: =RGBA(31, 124, 155, 1)
+                Size: =12
+                Width: =80
+                X: =20
+                Y: =20
+                ZIndex: =4
+

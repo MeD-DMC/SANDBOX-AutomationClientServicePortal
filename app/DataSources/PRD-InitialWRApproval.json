@@ -1,0 +1,9 @@
+[
+  {
+    "AddinConnectorId": "04ef2bb2-bdbe-481c-963b-0d04eff49dc5",
+    "AddinId": "6d1f157d-95bf-406d-b65d-cfd3240f724e",
+    "Name": "PRD-InitialWRApproval",
+    "ServiceKind": "AddinWadl",
+    "Type": "ServiceInfo"
+  }
+]

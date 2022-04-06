@@ -1,0 +1,11 @@
+VincentTestPage As screen:
+    OnVisible: =
+
+    VTTestHeader As Header:
+
+    Label3 As label:
+        Text: =If(VTTestHeader.Language="EN", LookUp(langPack, Title="1").English, LookUp(langPack, Title="1").French)
+        X: =156
+        Y: =464
+        ZIndex: =2
+

@@ -1,0 +1,9 @@
+[
+  {
+    "AddinConnectorId": "b17fb1d7-7c4c-4092-abb6-734262617a34",
+    "AddinId": "6d1f157d-95bf-406d-b65d-cfd3240f724e",
+    "Name": "MeD-PRD-SaveWR",
+    "ServiceKind": "AddinWadl",
+    "Type": "ServiceInfo"
+  }
+]

@@ -1,0 +1,9 @@
+[
+  {
+    "AddinConnectorId": "1ed78c70-4ae8-462c-9cb4-8c87859940ca",
+    "AddinId": "6d1f157d-95bf-406d-b65d-cfd3240f724e",
+    "Name": "MeD-PRD-NewWR",
+    "ServiceKind": "AddinWadl",
+    "Type": "ServiceInfo"
+  }
+]

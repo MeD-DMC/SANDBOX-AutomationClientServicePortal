@@ -1,0 +1,142 @@
+"screen_complete As screen.'tabletLayout_Success_ver3.0'":
+
+    Container7 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =768
+        LayoutAlignItems: =LayoutAlignItems.Center
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =9
+
+        Container6 As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Height: =768
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutMinHeight: =100
+            LayoutMinWidth: =Parent.Width
+            LayoutMode: =LayoutMode.Auto
+            Width: =1366
+            ZIndex: =1
+
+            Container5 As groupContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                FillPortions: =0
+                Height: =582
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                Width: =1366
+                X: =
+                Y: =
+                ZIndex: =1
+
+                LblSuccessMsg1 As label:
+                    Align: =Align.Center
+                    Height: =48
+                    Size: =20
+                    Text: ="The Work Request Form has been submitted"
+                    Width: =604
+                    X: =389
+                    Y: =285
+                    ZIndex: =3
+
+                btn_Submit_1 As button:
+                    Fill: =RGBA(31, 124, 155, 1)
+                    FontWeight: =FontWeight.Bold
+                    HoverFill: =ColorFade(RGBA(31,124,155,1), -20%)
+                    OnSelect: =Navigate(wr_status, Transition.None);Reset(PlannedGallery);Reset(ActiveGallery);Refresh('wrtracking-production-version-001');ClearCollect(numWRCol, (Filter('wrtracking-production-version-001',field_2=requestorEmail)));
+                    Text: ="Home Page"
+                    Tooltip: ="If you have more than one SCROM class package work request, please submit a different WR order with correct Content Package ID"
+                    Width: =245
+                    X: =567
+                    Y: =393
+                    ZIndex: =4
+
+                btn_Submit_2 As button:
+                    Fill: =RGBA(31, 124, 155, 1)
+                    HoverFill: =ColorFade(RGBA(31,124,155,1), -20%)
+                    OnSelect: =Navigate(editWR_1, Transition.None);
+                    Text: ="Edit Submitted WR"
+                    Tooltip: ="If you have more than one SCROM class package work request, please submit a different WR order with correct Content Package ID"
+                    Width: =245
+                    X: =567
+                    Y: =509
+                    ZIndex: =5
+
+                btn_Submit_9 As button:
+                    Fill: =RGBA(31, 124, 155, 1)
+                    HoverFill: =ColorFade(RGBA(31,124,155,1), -20%)
+                    OnSelect: |
+                        =Navigate(newHome, Transition.None);
+                    Text: ="Add Another WR"
+                    Tooltip: ="If you have more than one SCROM class package work request, please submit a different WR order with correct Content Package ID"
+                    Width: =245
+                    X: =567
+                    Y: =451
+                    ZIndex: =6
+
+                Group8 As group:
+                    Height: =5
+                    Width: =5
+                    X: =40
+                    Y: =40
+                    ZIndex: =7
+
+                    iconCircle1 As circle.Circle:
+                        Fill: =RGBA(31, 124, 155, 1)
+                        X: =641
+                        Y: =125
+                        ZIndex: =1
+
+                    iconCheck1 As icon.Check:
+                        DisplayMode: =DisplayMode.View
+                        Height: =iconCircle1.Height
+                        Icon: =Icon.Check
+                        PaddingBottom: =Self.PaddingTop
+                        PaddingLeft: =Self.PaddingTop
+                        PaddingRight: =Self.PaddingTop
+                        PaddingTop: =24
+                        Width: =iconCircle1.Width
+                        X: =640
+                        Y: =125
+                        ZIndex: =2
+
+    Header_9 As groupContainer.horizontalAutoLayoutContainer:
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =180
+        LayoutAlignItems: =LayoutAlignItems.Center
+        LayoutMode: =LayoutMode.Auto
+        PaddingRight: =75
+        Width: =Parent.Width
+        ZIndex: =10
+
+        FullHeaderContainer_7 As groupContainer:
+            AlignInContainer: =AlignInContainer.Start
+            BorderThickness: =1
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =150
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            Width: =Parent.Width
+            ZIndex: =1
+
+            "'header-submit-1' As Header":
+                SelectedLanguage: =lanFlag
+
+            dd_lan_selector_7 As dropdown:
+                ChevronBackground: =RGBA(31, 124, 155, 1)
+                Default: =lanFlag
+                Height: =32
+                Items: =["EN","FR"]
+                OnChange: =Set(lanFlag, dd_lan_selector_7.SelectedText.Value)
+                PaddingBottom: =5
+                PaddingLeft: =5
+                PaddingRight: =5
+                PaddingTop: =5
+                SelectionFill: =RGBA(31, 124, 155, 1)
+                Size: =12
+                Width: =80
+                X: =20
+                Y: =20
+                ZIndex: =4
+

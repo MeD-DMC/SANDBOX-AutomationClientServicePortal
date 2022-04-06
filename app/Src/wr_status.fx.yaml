@@ -1,0 +1,614 @@
+wr_status As screen:
+    Height: =Max(App.Height, App.DesignHeight)
+    OnVisible: |-
+        =Collect(formDataFR, {Image: 'header-portal'.CollegeBanner});Refresh('wrtracking-production-version-001');Reset(ActiveGallery);Reset(PlannedGallery);
+
+    ScreenSlicer As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =5
+
+        FullHeaderContainer_10 As groupContainer:
+            AlignInContainer: =AlignInContainer.Start
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: |
+                =150
+            LayoutMinHeight: =200
+            LayoutMinWidth: =250
+            Width: =Parent.Width
+            ZIndex: =1
+
+            "'header-portal' As Header":
+                SelectedLanguage: =lanFlag
+
+            dd_lan_selector As dropdown:
+                ChevronBackground: =RGBA(31, 124, 155, 1)
+                Default: =lanFlag
+                Height: =32
+                Items: =["EN","FR"]
+                OnChange: =Set(lanFlag, dd_lan_selector.SelectedText.Value)
+                PaddingBottom: =5
+                PaddingLeft: =5
+                PaddingRight: =5
+                PaddingTop: =5
+                SelectionFill: =RGBA(31, 124, 155, 1)
+                Size: =12
+                Width: =80
+                X: =20
+                Y: =20
+                ZIndex: =4
+
+        BodyContainer As groupContainer.manualLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            BorderThickness: =1
+            Height: |
+                =Parent.Height - 150
+            LayoutMinHeight: =50
+            LayoutMinWidth: =250
+            PaddingTop: =20
+            Width: |
+                =Parent.Width
+            Y: |
+                =150
+            ZIndex: =2
+
+            BodySlicer As groupContainer.horizontalAutoLayoutContainer:
+                BorderColor: =RGBA(255, 255, 255, 1)
+                BorderStyle: =BorderStyle.None
+                Fill: =RGBA(31, 124, 155, 0.19)
+                Height: =Parent.Height
+                LayoutGap: =10
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMode: =LayoutMode.Auto
+                LayoutOverflowX: =LayoutOverflow.Scroll
+                LayoutOverflowY: =LayoutOverflow.Scroll
+                LayoutWrap: =true
+                PaddingBottom: =10
+                PaddingLeft: =10
+                PaddingRight: =10
+                PaddingTop: =10
+                Width: =Parent.Width
+                ZIndex: =6
+
+                Stats As groupContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    BorderStyle: =BorderStyle.None
+                    Fill: =RGBA(255, 255, 255, 1)
+                    FillPortions: =0
+                    Height: =Parent.Height-20
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    PaddingBottom: =5
+                    PaddingLeft: =5
+                    PaddingRight: =5
+                    PaddingTop: =5
+                    Width: =185
+                    Y: =1
+                    ZIndex: =1
+
+                    StatSlicer As groupContainer.verticalAutoLayoutContainer:
+                        Height: =Parent.Height
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutGap: =15
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingBottom: =15
+                        PaddingLeft: =10
+                        PaddingRight: =10
+                        PaddingTop: =10
+                        Width: =Parent.Width
+                        ZIndex: =20
+
+                        btn_newWR As button:
+                            BorderStyle: =BorderStyle.None
+                            Fill: =RGBA(31, 124, 155, 1)
+                            OnSelect: =Navigate(newHome,None);Clear(dataForm)
+                            RadiusBottomLeft: =9
+                            RadiusBottomRight: =9
+                            RadiusTopLeft: =9
+                            RadiusTopRight: =9
+                            Size: =13
+                            Text: =If(dd_lan_selector.SelectedText.Value="EN", LookUp(langPack, Title="1").English, LookUp(langPack, Title="1").French)
+                            Width: |
+                                =Parent.Width-20
+                            X: =12
+                            ZIndex: =1
+
+                        btn_takeWR As button:
+                            BorderStyle: =BorderStyle.None
+                            Fill: =RGBA(31, 124, 155, 1)
+                            OnSelect: =Navigate(reAssignWR,None);Clear(dataForm)
+                            RadiusBottomLeft: =9
+                            RadiusBottomRight: =9
+                            RadiusTopLeft: =9
+                            RadiusTopRight: =9
+                            Size: =13
+                            Text: =If(dd_lan_selector.SelectedText.Value="EN", LookUp(langPack, Title="2").English, LookUp(langPack, Title="2").French)
+                            Width: =Parent.Width-20
+                            X: =12
+                            Y: =59
+                            ZIndex: =2
+
+                        MyWRgrp As group:
+                            Height: =5
+                            LayoutMinHeight: =5
+                            LayoutMinWidth: =5
+                            Width: =5
+                            X: =-12
+                            Y: =40
+                            ZIndex: =3
+
+                            lbl_MyWRStatLabel As label:
+                                Align: =Align.Center
+                                FontWeight: =FontWeight.Semibold
+                                Size: =16
+                                Text: =If(dd_lan_selector.SelectedText.Value="EN", LookUp(langPack, Title="3").English, LookUp(langPack, Title="3").French)
+                                Width: =115
+                                X: =22
+                                Y: =123
+                                ZIndex: =7
+
+                            lbl_MyWRStatNum As label:
+                                Align: =Align.Center
+                                Height: =60
+                                Size: =38
+                                Text: =CountRows(numWRCol)
+                                Width: =99
+                                X: =30
+                                Y: =163
+                                ZIndex: =8
+
+                        Plannedgrp As group:
+                            Height: =5
+                            LayoutMinHeight: =5
+                            LayoutMinWidth: =5
+                            Width: =5
+                            X: =-12
+                            Y: =40
+                            ZIndex: =4
+
+                            lbl_PlannedStatLabel As label:
+                                Align: =Align.Center
+                                FontWeight: =FontWeight.Semibold
+                                Height: =31
+                                Size: =16
+                                Text: =If(dd_lan_selector.SelectedText.Value="EN", LookUp(langPack, Title="4").English, LookUp(langPack, Title="4").French)
+                                Width: =120
+                                X: =19
+                                Y: =251
+                                ZIndex: =9
+
+                            lbl_PlannedStatNum As label:
+                                Align: =Align.Center
+                                Height: =54
+                                Size: =38
+                                Text: =CountIf(numWRCol, projectStatus.Value = "OnWorkPlan")
+                                Width: =99
+                                X: =30
+                                Y: =282
+                                ZIndex: =10
+
+                        Activegrp As group:
+                            Height: =5
+                            LayoutMinHeight: =5
+                            LayoutMinWidth: =5
+                            Width: =5
+                            X: =-12
+                            Y: =40
+                            ZIndex: =5
+
+                            lbl_ActiveStatLabel As label:
+                                Align: =Align.Center
+                                FontWeight: =FontWeight.Semibold
+                                Height: =28
+                                Size: =16
+                                Text: =If(dd_lan_selector.SelectedText.Value="EN", LookUp(langPack, Title="5").English, LookUp(langPack, Title="5").French)
+                                Width: =131
+                                X: =14
+                                Y: =364
+                                ZIndex: =11
+
+                            lbl_ActiveStatNum As label:
+                                Align: =Align.Center
+                                Height: =52
+                                Size: =38
+                                Text: =CountIf(numWRCol, projectStatus.Value = "WithMeD" ||projectStatus.Value="ToBeLoadedLive" || projectStatus.Value="WithDT")
+                                Width: =99
+                                X: =30
+                                Y: =398
+                                ZIndex: =12
+
+                        Closedgrp As group:
+                            Height: =5
+                            LayoutMinHeight: =5
+                            LayoutMinWidth: =5
+                            Width: =5
+                            X: =-12
+                            Y: =40
+                            ZIndex: =6
+
+                            lbl_ClosedStatLabel As label:
+                                Align: =Align.Center
+                                FontWeight: =FontWeight.Semibold
+                                Height: =28
+                                Size: =16
+                                Text: =If(dd_lan_selector.SelectedText.Value="EN", LookUp(langPack, Title="6").English, LookUp(langPack, Title="6").French)
+                                Width: =131
+                                X: =14
+                                Y: =480
+                                ZIndex: =13
+
+                            lbl_ClosedStatNum As label:
+                                Align: =Align.Center
+                                Height: =52
+                                Size: =38
+                                Text: =CountIf(numWRCol, projectStatus.Value = "Closed")
+                                Width: =99
+                                X: =30
+                                Y: =514
+                                ZIndex: =14
+
+                PlannedWRContainer As groupContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    BorderStyle: =BorderStyle.None
+                    Fill: =RGBA(255, 255, 255, 1)
+                    Height: |
+                        =Parent.Height-20
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =500
+                    PaddingBottom: =5
+                    PaddingLeft: =5
+                    PaddingRight: =5
+                    PaddingTop: =5
+                    Width: =663
+                    X: =40
+                    Y: =88
+                    ZIndex: =2
+
+                    PlannedWRSlicer As groupContainer.verticalAutoLayoutContainer:
+                        Height: =Parent.Height
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingBottom: =10
+                        PaddingLeft: =10
+                        PaddingRight: =10
+                        PaddingTop: =10
+                        Width: =Parent.Width
+                        ZIndex: =29
+
+                        PlannedWRHeader As groupContainer.manualLayoutContainer:
+                            AlignInContainer: =AlignInContainer.SetByContainer
+                            BorderStyle: =BorderStyle.None
+                            FillPortions: =0
+                            Height: =60
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            PaddingTop: =15
+                            Width: =Parent.Width-20
+                            ZIndex: =1
+
+                            lbl_PlannedGallery As label:
+                                Color: =RGBA(105, 69, 156, 1)
+                                Font: =Font.Arial
+                                FontWeight: =FontWeight.Semibold
+                                Height: =59
+                                PaddingBottom: =0
+                                PaddingLeft: =3
+                                PaddingRight: =0
+                                PaddingTop: =0
+                                Size: =20
+                                Text: =If(dd_lan_selector.SelectedText.Value="EN", LookUp(langPack, Title="8").English, LookUp(langPack, Title="8").French)
+                                VerticalAlign: =VerticalAlign.Top
+                                Width: =460
+                                ZIndex: =1
+
+                            RefreshPlanned As icon.Reload:
+                                Color: =RGBA(105, 69, 156, 1)
+                                Height: =32
+                                Icon: =Icon.Reload
+                                OnSelect: =Refresh('wrtracking-production-version-001');Reset(PlannedGallery);ClearCollect(numWRCol, (Filter('wrtracking-production-version-001',field_2=requestorEmail)));
+                                Width: =32
+                                X: =Parent.Width-RefreshPlanned.Width-46
+                                ZIndex: =2
+
+                        "PlannedGallery As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
+                            AlignInContainer: =AlignInContainer.SetByContainer
+                            Height: =560
+                            Items: |
+                                =SortByColumns(Filter('wrtracking-production-version-001',field_2= requestorEmail && projectStatus_temp.Value="OnWorkPlan"),"ID",Descending)
+                                
+                                //REMOVING WR requests searching for others temporarily ||StartsWith(Title, TextInput_WR_Number.Text)||StartsWith(SLNC_CourseNameEN, TextInput_WR_Number.Text)
+                            Layout: =Layout.Vertical
+                            LayoutMinHeight: =245
+                            LayoutMinWidth: =225
+                            OnSelect: =Navigate(editWR,None)
+                            TemplatePadding: =0
+                            TemplateSize: =145
+                            Width: =Parent.Width-20
+                            X: =204
+                            Y: =58
+                            ZIndex: =2
+
+                            Label4 As label:
+                                DisplayMode: =DisplayMode.Disabled
+                                FontWeight: =FontWeight.Bold
+                                Height: =26
+                                OnSelect: =Select(Parent)
+                                Size: =12
+                                Text: ="My Request"
+                                Visible: =false//If(ThisItem.requestor_email=requestorEmail,true,false)
+                                Width: =120
+                                ZIndex: =29
+
+                            Title3 As label:
+                                FontWeight: =FontWeight.Bold
+                                Height: =26
+                                OnSelect: =Select(Parent)
+                                PaddingBottom: =0
+                                PaddingLeft: =0
+                                PaddingRight: =0
+                                PaddingTop: =0
+                                Size: =14
+                                Text: =Concatenate("WR",ThisItem.Title)
+                                Width: =105
+                                Y: =10
+                                ZIndex: =30
+
+                            Subtitle3 As label:
+                                FontWeight: =FontWeight.Bold
+                                Height: =28
+                                OnSelect: =Select(Parent)
+                                PaddingBottom: =0
+                                PaddingLeft: =0
+                                PaddingRight: =0
+                                PaddingTop: =0
+                                Size: =12
+                                Text: |
+                                    =Concatenate(If(dd_lan_selector.SelectedText.Value="EN", LookUp(langPack, Title="47").English, LookUp(langPack, Title="47").French),": ", If(dd_lan_selector.SelectedText.Value="EN", LookUp(ProjectStatus,Title = ThisItem.projectStatus_temp.Value).Title,LookUp(ProjectStatus,Title = ThisItem.projectStatus_temp.Value).French))
+                                Width: =233
+                                X: =105
+                                Y: =10
+                                ZIndex: =31
+
+                            Icon2 As icon.NextArrow:
+                                Color: =RGBA(31, 124, 155, 1)
+                                Height: =48
+                                Icon: =Icon.Edit
+                                OnSelect: =Navigate(editWR,None)
+                                TabIndex: =0
+                                Width: =48
+                                X: =PlannedGallery.Width-86
+                                Y: =19
+                                ZIndex: =32
+
+                            lbl_coursename As label:
+                                Height: =50
+                                PaddingBottom: =0
+                                PaddingLeft: =0
+                                PaddingRight: =10
+                                PaddingTop: =0
+                                Size: =12
+                                Text: |-
+                                    =Concatenate(If(dd_lan_selector.SelectedText.Value="EN", LookUp(langPack, Title="48").English, LookUp(langPack, Title="48").French),": ", If(dd_lan_selector.SelectedText.Value="EN", ThisItem.field_15, ThisItem.field_16))
+                                VerticalAlign: =VerticalAlign.Top
+                                Width: =PlannedGallery.Width - 80
+                                Y: =47
+                                ZIndex: =33
+
+                            Label2 As label:
+                                Align: =Align.Center
+                                Color: =RGBA(31, 124, 155, 1)
+                                FontWeight: =FontWeight.Bold
+                                Height: =48
+                                OnSelect: =Select(Parent)
+                                TabIndex: =0
+                                Text: =If(dd_lan_selector.SelectedText.Value="EN", LookUp(langPack, Title="50").English, LookUp(langPack, Title="50").French)
+                                Width: =64
+                                X: =PlannedGallery.Width-92
+                                Y: =67
+                                ZIndex: =34
+
+                            Subtitle3_1 As label:
+                                Height: =27
+                                OnSelect: =Select(Parent)
+                                PaddingBottom: =0
+                                PaddingLeft: =0
+                                PaddingRight: =0
+                                PaddingTop: =0
+                                Size: =12
+                                Text: |-
+                                    =Concatenate(If(dd_lan_selector.SelectedText.Value="EN", LookUp(langPack, Title="52").English, LookUp(langPack, Title="52").French),": ", Text(ThisItem.field_32,"yyyy-mmm-dd"))
+                                Width: =270
+                                Y: =97
+                                ZIndex: =35
+
+                            Separator3 As rectangle:
+                                Fill: =RGBA(31, 124, 155, 1)
+                                Height: =1
+                                OnSelect: =Select(Parent)
+                                Width: =Parent.TemplateWidth
+                                Y: =Parent.TemplateHeight - 15
+                                ZIndex: =36
+
+                ActiveWRContainer As groupContainer.manualLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    BorderStyle: =BorderStyle.None
+                    Fill: =RGBA(255, 255, 255, 1)
+                    Height: |
+                        =Parent.Height-20
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =500
+                    ZIndex: =3
+
+                    ActiveWRSlicer As groupContainer.verticalAutoLayoutContainer:
+                        Height: =Parent.Height
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingBottom: =10
+                        PaddingLeft: =10
+                        PaddingRight: =10
+                        PaddingTop: =10
+                        Width: =Parent.Width
+                        ZIndex: =4
+
+                        ActiveWRHeader As groupContainer.manualLayoutContainer:
+                            AlignInContainer: =AlignInContainer.SetByContainer
+                            FillPortions: =0
+                            Height: =60
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            Width: =Parent.Width-20
+                            ZIndex: =1
+
+                            RefreshActive As icon.Reload:
+                                Color: =RGBA(205, 28, 105, 1)
+                                Height: =32
+                                Icon: =Icon.Reload
+                                OnSelect: =Refresh('wrtracking-production-version-001');Reset(ActiveGallery);ClearCollect(numWRCol, (Filter('wrtracking-production-version-001',field_2=requestorEmail)));
+                                Width: =32
+                                X: =Parent.Width-RefreshActive.Width -46
+                                ZIndex: =1
+
+                            lbl_ActiveGallery As label:
+                                Color: =RGBA(205, 28, 105, 1)
+                                Font: =Font.Arial
+                                FontWeight: =FontWeight.Semibold
+                                Height: =59
+                                PaddingBottom: =0
+                                PaddingLeft: =3
+                                PaddingRight: =0
+                                PaddingTop: =0
+                                Size: =20
+                                Text: =If(dd_lan_selector.SelectedText.Value="EN", LookUp(langPack, Title="9").English, LookUp(langPack, Title="9").French)
+                                VerticalAlign: =VerticalAlign.Top
+                                Width: =476
+                                ZIndex: =2
+
+                        "ActiveGallery As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
+                            AlignInContainer: =AlignInContainer.SetByContainer
+                            Height: =560
+                            Items: =SortByColumns(Filter('wrtracking-production-version-001',field_2= requestorEmail && projectStatus_temp.Value="WithMeD" || field_2= requestorEmail && projectStatus_temp.Value="ToBeLoadedLive" || field_2= requestorEmail && projectStatus_temp.Value="WithDT" || field_2= requestorEmail && projectStatus_temp.Value="OnHold"),"ID",Descending)
+                            Layout: =Layout.Vertical
+                            LayoutMinHeight: =287
+                            LayoutMinWidth: =320
+                            OnSelect: =Navigate(viewWR,None)
+                            TemplatePadding: =0
+                            TemplateSize: =145
+                            Width: =Parent.Width-20
+                            X: =40
+                            Y: =40
+                            ZIndex: =2
+
+                            Group5 As group:
+                                Height: =5
+                                Width: =5
+                                X: =40
+                                Y: =40
+                                ZIndex: =10
+
+                                Icon2_1 As icon.NextArrow:
+                                    BorderColor: =RGBA(31, 124, 155, 1)
+                                    Color: =RGBA(31, 124, 155, 1)
+                                    Height: =48
+                                    Icon: =Icon.View
+                                    OnSelect: =Navigate(viewWR,None)
+                                    TabIndex: =0
+                                    Width: =48
+                                    X: =ActiveGallery.Width-86
+                                    Y: =10
+                                    ZIndex: =42
+
+                                Label5 As label:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(31, 124, 155, 1)
+                                    Color: =RGBA(31, 124, 155, 1)
+                                    FontWeight: =FontWeight.Bold
+                                    Height: =50
+                                    OnSelect: =Navigate(viewWR,None)
+                                    TabIndex: =0
+                                    Text: =If(dd_lan_selector.SelectedText.Value="EN", LookUp(langPack, Title="51").English, LookUp(langPack, Title="51").French)
+                                    Width: =54
+                                    X: =ActiveGallery.Width-86
+                                    Y: =58
+                                    ZIndex: =44
+
+                            Label4_1 As label:
+                                DisplayMode: =DisplayMode.Disabled
+                                FontWeight: =FontWeight.Bold
+                                Height: =26
+                                OnSelect: =Select(Parent)
+                                Size: =12
+                                Text: ="My Request"
+                                Visible: =false//If(ThisItem.requestor_email=requestorEmail,true,false)
+                                Width: =120
+                                ZIndex: =39
+
+                            Subtitle3_3 As label:
+                                FontWeight: =FontWeight.Bold
+                                Height: =26
+                                OnSelect: =Select(Parent)
+                                PaddingBottom: =0
+                                PaddingLeft: =0
+                                PaddingRight: =0
+                                PaddingTop: =0
+                                Size: =12
+                                Text: |-
+                                    =Concatenate(If(dd_lan_selector.SelectedText.Value="EN", LookUp(langPack, Title="47").English, LookUp(langPack, Title="47").French),": ", If(dd_lan_selector.SelectedText.Value="EN", LookUp(ProjectStatus,Title = ThisItem.projectStatus_temp.Value).Title,LookUp(ProjectStatus,Title = ThisItem.projectStatus_temp.Value).French))
+                                Width: =367
+                                X: =105
+                                Y: =10
+                                ZIndex: =40
+
+                            Title3_1 As label:
+                                FontWeight: =FontWeight.Bold
+                                Height: =26
+                                OnSelect: =Select(Parent)
+                                PaddingBottom: =0
+                                PaddingLeft: =0
+                                PaddingRight: =0
+                                PaddingTop: =0
+                                Size: =14
+                                Text: =Concatenate("WR",ThisItem.Title)
+                                Width: =105
+                                Y: =10
+                                ZIndex: =41
+
+                            lbl_coursename_1 As label:
+                                Height: =45
+                                PaddingBottom: =0
+                                PaddingLeft: =0
+                                PaddingRight: =10
+                                PaddingTop: =0
+                                Size: =12
+                                Text: |-
+                                    =Concatenate(If(dd_lan_selector.SelectedText.Value="EN", LookUp(langPack, Title="48").English, LookUp(langPack, Title="48").French),": ", If(dd_lan_selector.SelectedText.Value="EN", ThisItem.field_15, ThisItem.field_16))
+                                VerticalAlign: =VerticalAlign.Top
+                                Width: =425
+                                Y: =50
+                                ZIndex: =43
+
+                            Subtitle3_2 As label:
+                                Height: =27
+                                OnSelect: =Select(Parent)
+                                PaddingBottom: =0
+                                PaddingLeft: =0
+                                PaddingRight: =0
+                                PaddingTop: =0
+                                Size: =12
+                                Text: |-
+                                    =Concatenate(If(dd_lan_selector.SelectedText.Value="EN", LookUp(langPack, Title="52").English, LookUp(langPack, Title="52").French),": ", Text(ThisItem.field_32,"yyyy-mmm-dd"))
+                                Width: =270
+                                Y: =97
+                                ZIndex: =45
+
+                            Separator3_1 As rectangle:
+                                Fill: =RGBA(31, 124, 155, 1)
+                                Height: =1
+                                OnSelect: =Select(Parent)
+                                Width: =Parent.TemplateWidth
+                                Y: =Parent.TemplateHeight - 15
+                                ZIndex: =46
+

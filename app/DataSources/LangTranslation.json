@@ -1,0 +1,49 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+    "CdpRevision": {
+      "BaseUrl": "/",
+      "LastChangedTimeString": "2022-03-24T16:38:32.5950000Z",
+      "RevisionNumber": 1
+    },
+    "ConnectedDataSourceInfoNameMapping": {
+      "{Attachments}": "Attachments",
+      "{Attachments}@odata.type": "{Attachments} ({Attachments}@odata.type)",
+      "{FilenameWithExtension}": "File name with extension",
+      "{FullPath}": "Full Path",
+      "{HasAttachments}": "Has attachments",
+      "{Identifier}": "Identifier",
+      "{IsFolder}": "IsFolder",
+      "{Link}": "Link to item",
+      "{ModerationComment}": "Comments associated with the content approval of this list item",
+      "{ModerationStatus}": "Content approval status",
+      "{Name}": "Name",
+      "{Path}": "Folder path",
+      "{Thumbnail}": "Thumbnail",
+      "{TriggerWindowEndToken}": "Trigger Window End Token",
+      "{TriggerWindowStartToken}": "Trigger Window Start Token",
+      "{VersionNumber}": "Version number",
+      "Author": "Created By",
+      "Author#Claims": "Created By Claims",
+      "ChangedtouseTitle_x0023_inCSP": "Changed to use Title in all Apps",
+      "ComplianceAssetId": "Compliance Asset Id",
+      "Created": "Created",
+      "CSP": "CSP",
+      "Editor": "Modified By",
+      "Editor#Claims": "Modified By Claims",
+      "English": "English",
+      "French": "French",
+      "ID": "ID",
+      "Modified": "Modified",
+      "OData__x0047_T3": "GT3",
+      "OData__x0047_T4": "GT4",
+      "Title": "Title"
+    },
+    "DatasetName": "https://014gc.sharepoint.com/sites/MeD",
+    "EncodeDataset": true,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "LangTranslation",
+    "Type": "ConnectedDataSourceInfo"
+  }
+]

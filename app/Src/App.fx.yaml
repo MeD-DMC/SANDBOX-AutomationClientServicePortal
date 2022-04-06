@@ -1,0 +1,19 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |-
+        =lbl_warning_4.Visible=false;
+        ClearCollect(langPack, LangTranslation);
+        ClearCollect(faqPack, 'MeD FAQ DB');
+        Set(lanFlag, Upper(Left(Language(),2)));
+        lbl_warning_3.Visible=false;
+        Set(mediumFlag, true); 
+        Set(requestorEmail, Office365Users.MyProfile().UserPrincipalName);
+        //ClearCollect(dataObj, Filter('wrtracking-prd-am',requestorEmail in sharewith.Email));
+        ClearCollect(numWRCol, (Filter('wrtracking-production-version-001',field_2=requestorEmail)));
+        //ClearCollect(courseIDCol, ShowColumns(CourseClasses,"CourseID_x002d_Live"));
+        Set(themeBlack, RGBA(8, 28, 54, 1));
+        Set(themeCyan, RGBA(27, 156, 157, 1));
+        Set(themePurple, RGBA(105, 70, 156, 1));
+        Set(themePink, RGBA(206, 28, 106, 1));
+    StartScreen: =
+

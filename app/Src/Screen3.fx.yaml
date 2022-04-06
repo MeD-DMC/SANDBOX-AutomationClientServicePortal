@@ -1,0 +1,40 @@
+Screen3 As screen:
+
+    Label1_4 As label:
+        Text: |-
+            ="Project Status:"
+        Width: =127
+        X: =600
+        Y: =241
+        ZIndex: =1
+
+    Dropdown1_4 As dropdown:
+        Default: =LookUp(ProjectStatus, Title="InQueue").Title
+        Items: =Choices('wrtracking-production-version-001'.projectStatus)
+        Reset: =btn_Clear_2.Pressed
+        Width: =248
+        X: =740
+        Y: =241
+        ZIndex: =2
+
+    btn_Submit_7 As button:
+        DisplayMode: =
+        FontWeight: =FontWeight.Bold
+        Height: =47
+        OnSelect: |+
+            =Patch('wrtracking-production-version-001', Defaults('wrtracking-production-version-001'),
+            {
+                Title: Text(First(FirstN(Sort('wrtracking-production-version-001', ID, Descending), 1)).ID+5038),
+                projectStatus:{'@odata.type':"#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",Id:Dropdown1_4.Selected.Id,Value:Dropdown1_4.Selected.Value}
+                
+            });
+            
+            
+        TabIndex: =44
+        Text: ="Submit|Soumettre"
+        Tooltip: ="Submit the Form"
+        Width: =213
+        X: =632
+        Y: =460
+        ZIndex: =3
+

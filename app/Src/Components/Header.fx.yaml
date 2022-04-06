@@ -1,0 +1,228 @@
+Header As CanvasComponent:
+    CollegeBanner: =BackgroundBanner
+    ContentLanguage: ="EN"
+    Fill: =
+    Height: =150
+    SelectedLanguage: =
+    Width: =App.Width
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    BackgroundBanner As image:
+        Height: =Parent.Height
+        Image: =background
+        ImagePosition: =ImagePosition.Stretch
+        Width: =Parent.Width
+        ZIndex: =1
+
+    HeaderSlicer_1 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =150
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =2
+
+        Header_Left_1 As groupContainer:
+            Height: =150
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            PaddingBottom: =26
+            Width: =Parent.Width*(3/5)
+            ZIndex: =2
+
+            img_BannerDecoration_1 As image:
+                CalculateOriginalDimensions: |
+                    =true
+                Height: =150
+                Image: =left
+                ImagePosition: =ImagePosition.Stretch
+                Width: =683
+                ZIndex: =1
+
+            Container2_1 As groupContainer.verticalAutoLayoutContainer:
+                Height: =Parent.Height*(2/3)
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutJustifyContent: =LayoutJustifyContent.End
+                LayoutMode: =LayoutMode.Auto
+                PaddingBottom: =4
+                PaddingLeft: =20
+                Width: =Parent.Width
+                Y: =Parent.Height/3
+                ZIndex: =3
+
+                lbl_AppName_1 As label:
+                    AutoHeight: =true
+                    Color: =White
+                    DisabledColor: =White
+                    Font: =Font.'Lato Black'
+                    FontWeight: =Bold
+                    Height: =100
+                    LineHeight: =1
+                    PaddingBottom: =0
+                    PaddingLeft: |
+                        =0
+                    PaddingRight: =0
+                    PaddingTop: =10
+                    Size: =Switch(ScreenSize, ScreenSize.Small,15, ScreenSize.Medium,20, If(Header.SelectedLanguage="EN", 32, 27))
+                    TabIndex: =1
+                    Text: =If(Header.SelectedLanguage="EN", LookUp(langPack, Title="7").English, LookUp(langPack, Title="7").French)
+                    VerticalAlign: =
+                    Width: =Parent.Width
+                    X: |
+                        =0
+                    Y: =Parent.Height*0.5
+                    ZIndex: =3
+
+                lbl_Username_11 As label:
+                    Align: |
+                        =Align.Left
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: |
+                        =40
+                    PaddingBottom: =0
+                    PaddingLeft: |
+                        =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =14
+                    TabIndex: =2
+                    Text: =If(Header.SelectedLanguage="EN", "Hello, "& Office365Users.MyProfile().GivenName, "Bonjour, "& Office365Users.MyProfile().GivenName)
+                    Width: =Parent.Width
+                    X: |
+                        =0
+                    Y: |+
+                        =Parent.Height*0.75
+                        
+                    ZIndex: =4
+
+        Header_Right_1 As groupContainer.manualLayoutContainer:
+            Height: =150
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            Width: |
+                =Parent.Width*(2/5)+40
+            ZIndex: =3
+
+            Container2 As groupContainer.verticalAutoLayoutContainer:
+                Height: =150
+                LayoutAlignItems: =LayoutAlignItems.End
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMode: =LayoutMode.Auto
+                PaddingBottom: =26
+                PaddingLeft: =10
+                PaddingRight: =10
+                PaddingTop: =18
+                Width: |
+                    =Parent.Width
+                ZIndex: =5
+
+                logo_1 As image:
+                    Height: =55
+                    Image: =If(Header.SelectedLanguage="EN", med, dmc)
+                    ZIndex: =1
+
+                Container1_3 As groupContainer.verticalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    Height: =36
+                    LayoutAlignItems: =LayoutAlignItems.End
+                    LayoutDirection: |
+                        =LayoutDirection.Horizontal
+                    LayoutGap: =10
+                    LayoutJustifyContent: =LayoutJustifyContent.End
+                    LayoutMinHeight: =36
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingBottom: =1
+                    PaddingLeft: =1
+                    PaddingRight: =1
+                    PaddingTop: =1
+                    Width: =Parent.Width-20
+                    X: |
+                        =0
+                    Y: =80
+                    ZIndex: =2
+
+                    btn_feedback_15 As button:
+                        BorderColor: =RGBA(105, 69, 156, 0.33)
+                        BorderThickness: =1
+                        Fill: =RGBA(8, 28, 54, 1)
+                        FillPortions: =1
+                        LayoutMinWidth: =0
+                        OnSelect: |-
+                            =If(Header.SelectedLanguage="EN", Download("https://014gc.sharepoint.com/:i:/s/MeD/EdPQJr042UtCv6ewVNb2EcsBX1dV0KoGa5UNodd3HMp0FA?e=hegaNs"), Download("https://014gc.sharepoint.com/:i:/s/MeD/EUeM6OvHvk5FsaDAO0EF3l0Bh-OyAR9I0845ANucL8h7Yw?e=UNxoJJ"))
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        RadiusBottomLeft: =9
+                        RadiusBottomRight: =9
+                        RadiusTopLeft: =9
+                        RadiusTopRight: =9
+                        Size: =10
+                        Text: =If(Header.SelectedLanguage="EN", LookUp(langPack, Title="62").English, LookUp(langPack, Title="62").French)
+                        Width: =155
+                        Y: =93
+                        ZIndex: =1
+
+                    btn_feedback_17 As button:
+                        BorderColor: =RGBA(105, 69, 156, 0.33)
+                        BorderThickness: =1
+                        Fill: =RGBA(205, 28, 105, 1)
+                        FillPortions: =1
+                        LayoutMinWidth: =0
+                        OnSelect: |-
+                            =If(Header.SelectedLanguage="EN", Download("https://014gc.sharepoint.com/:w:/r/sites/MeD/Shared%20Documents/Planning/MeD%20DevOps%20%26%20Tools%20Workstream/Projects/Client%20Service%20Portal%20(CSP)/Documentation/CLG-ClientServicePortal-FAQ_EN.docx?d=w0c2373d7ebb6419d8737d1b8c3692387&csf=1&web=1"), Notify("Cette fonction n'est actuellement pas disponible en français. Nous nous excusons pour tout inconvénient."))
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        RadiusBottomLeft: =9
+                        RadiusBottomRight: =9
+                        RadiusTopLeft: =9
+                        RadiusTopRight: =9
+                        Size: =10
+                        Text: =If(Header.SelectedLanguage="EN", LookUp(langPack, Title="63").English, LookUp(langPack, Title="63").French)
+                        Width: =155
+                        Y: =93
+                        ZIndex: =2
+
+                    btn_feedback_14 As button:
+                        BorderColor: =RGBA(105, 69, 156, 0.33)
+                        BorderThickness: =1
+                        Fill: =RGBA(31, 124, 155, 1)
+                        FillPortions: =1
+                        LayoutMinWidth: =0
+                        OnSelect: |-
+                            =If(Header.SelectedLanguage="EN", Download ("https://014gc.sharepoint.com/:w:/s/MeD/EYr8j8rPH1FDkmTuXHWbE6gBSHFMIoOGDkbz9MGsbWWIag?e=rVjvMe"), Notify("Cette fonction n'est actuellement pas disponible en français. Nous nous excusons pour tout inconvénient."))
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        RadiusBottomLeft: =9
+                        RadiusBottomRight: =9
+                        RadiusTopLeft: =9
+                        RadiusTopRight: =9
+                        Size: =10
+                        Text: =If(Header.SelectedLanguage="EN", LookUp(langPack, Title="64").English, LookUp(langPack, Title="64").French)
+                        Width: |
+                            =155
+                        X: =178
+                        Y: =93
+                        ZIndex: =3
+
+                    btn_feedback_16 As button:
+                        BorderColor: =RGBA(105, 69, 156, 0.33)
+                        BorderThickness: =1
+                        Fill: =RGBA(105, 69, 156, 1)
+                        FillPortions: =1
+                        LayoutMinWidth: =0
+                        OnSelect: |
+                            =If(Header.SelectedLanguage="EN", Launch("https://forms.office.com/Pages/ResponsePage.aspx?id=RljVnoGKRkKs2LGgGr_A0Un9OJIvHjNFiFE__NvAv8RUQ1lKOElaTVRQQ0s4RjAwOUdHME1JRjZEOC4u&lang=en-CA"), Launch("https://forms.office.com/Pages/ResponsePage.aspx?id=RljVnoGKRkKs2LGgGr_A0Un9OJIvHjNFiFE__NvAv8RUQ1lKOElaTVRQQ0s4RjAwOUdHME1JRjZEOC4u&lang=fr-CA"))
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        RadiusBottomLeft: =9
+                        RadiusBottomRight: =9
+                        RadiusTopLeft: =9
+                        RadiusTopRight: =9
+                        Size: =10
+                        Text: =If(Header.SelectedLanguage="EN", LookUp(langPack, Title="61").English, LookUp(langPack, Title="61").French)
+                        Width: |
+                            =165
+                        X: =290
+                        Y: =1
+                        ZIndex: =4
+

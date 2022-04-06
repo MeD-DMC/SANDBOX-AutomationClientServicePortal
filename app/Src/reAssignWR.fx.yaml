@@ -1,0 +1,498 @@
+reAssignWR As screen:
+    OnVisible: |-
+        =UpdateContext({SortDescending1: !SortDescending1});
+        Set(rawr_selectedBL, rawr_blSelector.Selected.Value);
+
+    ScreenSlicer_reassign As groupContainer.horizontalAutoLayoutContainer:
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =Parent.Height
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        PaddingRight: =75
+        Width: =Parent.Width
+        ZIndex: =10
+
+        FullHeaderContainer_6 As groupContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =232
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            Width: =Parent.Width
+            ZIndex: =1
+
+            "'header-reassign' As Header":
+                SelectedLanguage: =lanFlag
+
+            Icon1_18 As icon.BackArrow:
+                Color: =RGBA(31, 124, 155, 1)
+                Height: =57
+                Icon: =Icon.BackArrow
+                OnSelect: =Back();
+                PaddingLeft: =15
+                Width: =80
+                Y: =163
+                ZIndex: =4
+
+            Label7_4 As label:
+                Color: =RGBA(31, 124, 155, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =35
+                OnSelect: =Back()
+                Size: =22
+                Text: =If(dd_lan_selector_6.SelectedText.Value="EN", LookUp(langPack, Title="41").English, LookUp(langPack, Title="41").French)
+                Width: =178
+                X: =91
+                Y: =174
+                ZIndex: =5
+
+            dd_lan_selector_6 As dropdown:
+                ChevronBackground: =RGBA(31, 124, 155, 1)
+                Default: =lanFlag
+                Height: =32
+                Items: =["EN","FR"]
+                OnChange: =Set(lanFlag, dd_lan_selector_6.SelectedText.Value)
+                PaddingBottom: =5
+                PaddingLeft: =5
+                PaddingRight: =5
+                PaddingTop: =5
+                SelectionFill: =RGBA(31, 124, 155, 1)
+                Size: =12
+                Width: =80
+                X: =20
+                Y: |
+                    =20
+                ZIndex: =6
+
+        content As groupContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Height: =Parent.Height
+            LayoutMinHeight: =400
+            LayoutMinWidth: =250
+            Width: =Parent.Width
+            Y: =183
+            ZIndex: =2
+
+            Container4 As groupContainer.horizontalAutoLayoutContainer:
+                Height: =Parent.Height
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
+                ZIndex: =23
+
+                Container3 As groupContainer.manualLayoutContainer:
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    X: =100
+                    Y: =100
+                    ZIndex: =1
+
+                    Container8 As groupContainer.verticalAutoLayoutContainer:
+                        Height: =Parent.Height
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingLeft: =10
+                        PaddingTop: =10
+                        Width: =Parent.Width
+                        ZIndex: =5
+
+                        Container9 As groupContainer.manualLayoutContainer:
+                            FillPortions: =0
+                            Height: =50
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            PaddingBottom: =2
+                            ZIndex: =1
+
+                            Container15 As groupContainer.horizontalAutoLayoutContainer:
+                                Height: =Parent.Height
+                                LayoutMode: =LayoutMode.Auto
+                                Width: =Parent.Width
+                                ZIndex: =4
+
+                                rawr_blSelector As dropdown:
+                                    AlignInContainer: =AlignInContainer.Center
+                                    Default: ="Select / Choisir"
+                                    Height: =Parent.Height-8
+                                    Items: =Choices('wrtracking-production-version-001'.businessLine)
+                                    OnChange: =Set(rawr_selectedBL, rawr_blSelector.Selected.Value)
+                                    Width: =257
+                                    X: =416
+                                    Y: =8
+                                    ZIndex: =1
+
+                                Container16 As groupContainer.manualLayoutContainer:
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =250
+                                    ZIndex: =4
+
+                                    txtinput_searchbox As text:
+                                        Default: =""
+                                        Height: |+
+                                            =Parent.Height-8
+                                            
+                                            
+                                        HintText: |-
+                                            ="Search your WR | 
+                                            Recherchez votre WR"
+                                        PaddingLeft: =40
+                                        RadiusBottomLeft: =0
+                                        RadiusBottomRight: =0
+                                        RadiusTopLeft: =0
+                                        RadiusTopRight: =0
+                                        Width: =414
+                                        Y: |
+                                            =4
+                                        ZIndex: =1
+
+                                    Icon_search As icon.Search:
+                                        Color: =RGBA(128, 128, 128, 1)
+                                        Height: =28
+                                        Icon: =Icon.Search
+                                        Width: =28
+                                        X: =3
+                                        Y: =(Parent.Height-Icon_search.Height)/2
+                                        ZIndex: =2
+
+                        "gallery_WR As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
+                            Height: =Parent.Height
+                            Items: =SortByColumns(Filter('wrtracking-production-version-001',(businessLine.Value = rawr_selectedBL) && (projectStatus.Value="WithMeD" || projectStatus.Value="WithDT" || projectStatus.Value="OnHold") && (StartsWith(Title, txtinput_searchbox.Text) || StartsWith(SLNC_CourseNameEN, txtinput_searchbox.Text) || StartsWith(requestor_name, txtinput_searchbox.Text) )),"Title", Descending)
+                            Layout: =Layout.Vertical
+                            LayoutMinHeight: =287
+                            LayoutMinWidth: =320
+                            TemplatePadding: =0
+                            TemplateSize: =143
+                            X: =40
+                            ZIndex: =4
+
+                            Title2 As label:
+                                Height: =27
+                                OnSelect: =Select(Parent)
+                                PaddingBottom: =0
+                                PaddingLeft: =0
+                                PaddingRight: =0
+                                PaddingTop: =0
+                                Size: =14
+                                Text: ="WR " & ThisItem.Title
+                                VerticalAlign: =VerticalAlign.Top
+                                Width: =89
+                                X: =61
+                                Y: =8
+                                ZIndex: =1
+
+                            Subtitle2 As label:
+                                Height: =Self.Size * 1.8
+                                OnSelect: =Select(Parent)
+                                PaddingBottom: =0
+                                PaddingLeft: =0
+                                PaddingRight: =0
+                                PaddingTop: =0
+                                Size: =14
+                                Text: |-
+                                    =If(dd_lan_selector_6.SelectedText.Value="EN", LookUp(langPack, Title="60").English, LookUp(langPack, Title="60").French) & ": " & ThisItem.field_13
+                                VerticalAlign: =VerticalAlign.Top
+                                Width: =Parent.TemplateWidth - 104
+                                X: =61
+                                Y: =Title2.Y + Title2.Height + 2
+                                ZIndex: =2
+
+                            Body1 As label:
+                                Height: =25
+                                OnSelect: =Select(Parent)
+                                PaddingBottom: =0
+                                PaddingLeft: =0
+                                PaddingRight: =0
+                                PaddingTop: =0
+                                Size: =12
+                                Text: |-
+                                    =If(dd_lan_selector_6.SelectedText.Value="EN", LookUp(langPack, Title="65").English, LookUp(langPack, Title="65").French) & ": " & ThisItem.field_1
+                                VerticalAlign: =VerticalAlign.Top
+                                Width: =503
+                                X: =153
+                                Y: =10
+                                ZIndex: =3
+
+                            NextArrow2 As icon.ChevronRight:
+                                AccessibleLabel: =Self.Tooltip
+                                Height: =60
+                                Icon: =Icon.ChevronRight
+                                OnSelect: =Select(Parent)
+                                PaddingBottom: =10
+                                PaddingLeft: =10
+                                PaddingRight: =10
+                                PaddingTop: =10
+                                TabIndex: =0
+                                Tooltip: ="View item details"
+                                Width: =60
+                                X: =Parent.TemplateWidth - Self.Width - 5
+                                Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                                ZIndex: =4
+
+                            Separator2 As rectangle:
+                                Height: =1
+                                OnSelect: =Select(Parent)
+                                Width: =Parent.TemplateWidth
+                                Y: =140
+                                ZIndex: =5
+
+                            Subtitle2_1 As label:
+                                Height: =44
+                                OnSelect: =Select(Parent)
+                                PaddingBottom: =0
+                                PaddingLeft: =0
+                                PaddingRight: =0
+                                PaddingTop: =0
+                                Size: =12
+                                Text: |-
+                                    =If(dd_lan_selector_6.SelectedText.Value="EN", LookUp(langPack, Title="48").English, LookUp(langPack, Title="48").French)
+                                     & ":" & ThisItem.field_15
+                                VerticalAlign: =VerticalAlign.Top
+                                Width: =536
+                                X: =61
+                                Y: =70
+                                ZIndex: =6
+
+                            Checkbox1 As checkbox:
+                                Height: =40
+                                OnCheck: =Collect(SelectedItems, ThisItem)
+                                OnUncheck: =Remove(SelectedItems, ThisItem)
+                                Text: =""
+                                Width: =40
+                                X: =9
+                                Y: =41
+                                ZIndex: =7
+
+                            Subtitle2_2 As label:
+                                Height: =17
+                                OnSelect: =Select(Parent)
+                                PaddingBottom: =0
+                                PaddingLeft: =0
+                                PaddingRight: =0
+                                PaddingTop: =0
+                                Size: =12
+                                Text: =ThisItem.businessLine.Value
+                                VerticalAlign: =VerticalAlign.Top
+                                Width: =536
+                                X: =61
+                                Y: =118
+                                ZIndex: =8
+
+                Container1 As groupContainer.manualLayoutContainer:
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    X: =60
+                    Y: =60
+                    ZIndex: =2
+
+                    Container10 As groupContainer.verticalAutoLayoutContainer:
+                        Height: =Parent.Height
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingBottom: =10
+                        PaddingLeft: =20
+                        PaddingRight: =10
+                        PaddingTop: =10
+                        Width: =Parent.Width
+                        ZIndex: =8
+
+                        Container11 As groupContainer.manualLayoutContainer:
+                            FillPortions: =0
+                            Height: =40
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            ZIndex: =1
+
+                            TextInput1 As text:
+                                Default: =Concatenate(Office365Users.MyProfileV2().surname,", ",Office365Users.MyProfileV2().givenName)
+                                DisplayMode: =DisplayMode.View
+                                FontWeight: =FontWeight.Bold
+                                PaddingLeft: =5
+                                Width: =328
+                                X: =222
+                                ZIndex: =1
+
+                            Label6 As label:
+                                Text: =If(dd_lan_selector_6.SelectedText.Value="EN", LookUp(langPack, Title="38").English, LookUp(langPack, Title="38").French)
+                                ZIndex: =2
+
+                        Container12 As groupContainer.manualLayoutContainer:
+                            FillPortions: =0
+                            Height: =40
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            ZIndex: =2
+
+                            Label6_1 As label:
+                                Text: |
+                                    =If(dd_lan_selector_6.SelectedText.Value="EN", LookUp(langPack, Title="39").English, LookUp(langPack, Title="39").French)
+                                Width: =197
+                                ZIndex: =1
+
+                            Label9 As label:
+                                FontWeight: =FontWeight.Semibold
+                                Height: =34
+                                OnSelect: =
+                                Text: =CountRows(SelectedItems) & " " & If(dd_lan_selector_6.SelectedText.Value="EN", LookUp(langPack, Title="59").English, LookUp(langPack, Title="59").French)
+                                X: =222
+                                ZIndex: =2
+
+                        Gallery2 As gallery.galleryVertical:
+                            Height: =263
+                            Items: =SelectedItems
+                            Layout: =Layout.Vertical
+                            LayoutMinHeight: =287
+                            LayoutMinWidth: =320
+                            TemplatePadding: =0
+                            TemplateSize: =34
+                            Width: =494
+                            X: =73
+                            Y: =141
+                            ZIndex: =3
+
+                            Label8 As label:
+                                FontWeight: =FontWeight.Semibold
+                                Height: =34
+                                OnSelect: =Select(Parent)
+                                Text: |-
+                                    =
+                                    If(IsEmpty(SelectedItems),If(dd_lan_selector_6.SelectedText.Value="EN", LookUp(langPack, Title="58").English, LookUp(langPack, Title="58").French),"WR " & ThisItem.Title)
+                                Width: =1
+                                ZIndex: =1
+
+                            Label8_4 As label:
+                                Height: =34
+                                OnSelect: =Select(Parent)
+                                Size: =12
+                                Text: =ThisItem.Title
+                                Width: =64
+                                ZIndex: =2
+
+                            Label8_5 As label:
+                                Height: =34
+                                OnSelect: =Select(Parent)
+                                Size: =12
+                                Text: =ThisItem.requestor_name
+                                Width: =497
+                                X: =64
+                                ZIndex: =3
+
+                        Container13 As groupContainer.manualLayoutContainer:
+                            LayoutMinHeight: =40
+                            LayoutMinWidth: =250
+                            ZIndex: =4
+
+                            Container14 As groupContainer.horizontalAutoLayoutContainer:
+                                Height: =Parent.Height
+                                LayoutAlignItems: =LayoutAlignItems.Center
+                                LayoutGap: =100
+                                LayoutJustifyContent: =LayoutJustifyContent.Center
+                                LayoutMode: =LayoutMode.Auto
+                                Width: =Parent.Width
+                                ZIndex: =3
+
+                                Button2 As button:
+                                    DisplayMode: =If(IsEmpty(Gallery2.AllItems),DisplayMode.Disabled, DisplayMode.Edit)
+                                    OnSelect: |-
+                                        =UpdateContext({showPopup: true})
+                                    Text: =If(dd_lan_selector_6.SelectedText.Value="EN", LookUp(langPack, Title="40").English, LookUp(langPack, Title="40").French)
+                                    Width: =171
+                                    X: =40
+                                    Y: =40
+                                    ZIndex: =1
+
+                                Button2_1 As button:
+                                    BorderThickness: =4
+                                    Color: =RGBA(56, 96, 178, 1)
+                                    Fill: =RGBA(255, 255, 255, 1)
+                                    OnSelect: =Reset(gallery_WR);Navigate(wr_status,None)
+                                    Text: =If(dd_lan_selector_6.SelectedText.Value="EN", LookUp(langPack, Title="34").English, LookUp(langPack, Title="34").French)
+                                    X: =233
+                                    Y: =40
+                                    ZIndex: =2
+
+    popups As groupContainer:
+        Height: =390
+        Visible: =If(showPopup=true, true, false)
+        Width: =668
+        X: =349
+        Y: =217
+        ZIndex: =11
+
+        Rectangle1 As rectangle:
+            Height: =75
+            Width: =588
+            X: =40
+            Y: =40
+            ZIndex: =1
+
+        Rectangle1_1 As rectangle:
+            BorderThickness: =1
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =235
+            Width: =588
+            X: =40
+            Y: =115
+            ZIndex: =2
+
+        Label10 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =45
+            Size: =16
+            Text: ="Warning | Attention"
+            Width: =538
+            X: =90
+            Y: =52
+            ZIndex: =3
+
+        Label11 As label:
+            Height: =142
+            Size: =12
+            Text: |-
+                ="Are you sure you want to assign the selected WRs to yourself? Once it is done you won't be able to change them back! You will need to contact MeD or the original requestor to re-assign it back to them.
+                
+                Voulez-vous vraiment vous attribuer les WR sélectionnés ? Une fois cela fait, vous ne pourrez plus les modifier! "
+            Width: =532
+            X: =68
+            Y: =121
+            ZIndex: =4
+
+        Button3 As button:
+            OnSelect: |-
+                =ForAll(SelectedItems,
+                 Patch('wrtracking-production-version-001', 
+                        LookUp('wrtracking-production-version-001',  Title = SelectedItems[@Title]),
+                        {requestor_name:Concatenate(Office365Users.MyProfileV2().surname,", ",Office365Users.MyProfileV2().givenName)}
+                        )
+                    );
+                
+                
+                UpdateContext({showPopup:false});Refresh('wrtracking-production-version-001');Reset(gallery_WR);Reset(Gallery2);Clear(SelectedItems);
+            Size: =14
+            Text: ="Confirm | Confirmer"
+            Width: =228
+            X: =68
+            Y: =286
+            ZIndex: =5
+
+        Button4 As button:
+            Color: =RGBA(56, 96, 178, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            OnSelect: |-
+                =UpdateContext({showPopup:false});Clear(SelectedItems);
+            Text: ="Cancel | Annuler"
+            Width: =228
+            X: =372
+            Y: =286
+            ZIndex: =6
+
+        Icon3 As icon.Error:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =48
+            Icon: =Icon.Error
+            Width: =48
+            X: =196
+            Y: =51
+            ZIndex: =7
+
