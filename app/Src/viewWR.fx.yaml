@@ -359,7 +359,7 @@ viewWR As screen:
                                 Default: =ActiveGallery.Selected.isAdHoc
                                 DisplayMode: =DisplayMode.View
                                 Size: =11
-                                Text: =If(dd_lan_selector_4.SelectedText.Value="EN", LookUp(langPack, Title="26").English, LookUp(langPack, Title="26").French)
+                                Text: =If(dd_lan_selector_5.SelectedText.Value="EN", LookUp(langPack, Title="26").English, LookUp(langPack, Title="26").French)
                                 Visible: =false
                                 Width: =845
                                 X: =96
@@ -390,7 +390,7 @@ viewWR As screen:
                             Label1_179 As label:
                                 Height: =46
                                 TabIndex: =7
-                                Text: =If(dd_lan_selector_4.SelectedText.Value="EN", LookUp(langPack, Title="24").English, LookUp(langPack, Title="24").French)
+                                Text: =If(dd_lan_selector_5.SelectedText.Value="EN", LookUp(langPack, Title="24").English, LookUp(langPack, Title="24").French)
                                 Visible: =false
                                 Width: =160
                                 X: =96
@@ -401,7 +401,7 @@ viewWR As screen:
                                 FontWeight: =FontWeight.Bold
                                 Height: =37
                                 TabIndex: =3
-                                Text: =If(dd_lan_selector_4.SelectedText.Value="EN", LookUp(langPack, Title="23").English, LookUp(langPack, Title="23").French)
+                                Text: =If(dd_lan_selector_5.SelectedText.Value="EN", LookUp(langPack, Title="23").English, LookUp(langPack, Title="23").French)
                                 Visible: =false
                                 Width: =450
                                 X: =40
@@ -411,7 +411,7 @@ viewWR As screen:
                             Label1_180 As label:
                                 Height: =46
                                 TabIndex: =7
-                                Text: =If(dd_lan_selector_4.SelectedText.Value="EN", LookUp(langPack, Title="25").English, LookUp(langPack, Title="25").French)
+                                Text: =If(dd_lan_selector_5.SelectedText.Value="EN", LookUp(langPack, Title="25").English, LookUp(langPack, Title="25").French)
                                 Visible: =false
                                 Width: =140
                                 X: =617
@@ -755,7 +755,7 @@ viewWR As screen:
 
                             Label1_148 As label:
                                 TabIndex: =36
-                                Text: =If(dd_lan_selector_4.SelectedText.Value="EN", LookUp(langPack, Title="31").English, LookUp(langPack, Title="31").French)
+                                Text: =If(dd_lan_selector_5.SelectedText.Value="EN", LookUp(langPack, Title="31").English, LookUp(langPack, Title="31").French)
                                 Tooltip: ="*"
                                 Width: =181
                                 X: =92
