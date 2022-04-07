@@ -105,7 +105,7 @@ wr_status As screen:
                         btn_newWR As button:
                             BorderStyle: =BorderStyle.None
                             Fill: =RGBA(31, 124, 155, 1)
-                            OnSelect: =Navigate(newHome,None);Clear(dataForm)
+                            OnSelect: =Navigate(saveWR,None);Clear(dataForm)
                             RadiusBottomLeft: =9
                             RadiusBottomRight: =9
                             RadiusTopLeft: =9

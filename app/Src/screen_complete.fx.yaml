@@ -66,7 +66,7 @@
                     Fill: =RGBA(31, 124, 155, 1)
                     HoverFill: =ColorFade(RGBA(31,124,155,1), -20%)
                     OnSelect: |
-                        =Navigate(newHome, Transition.None);
+                        =Navigate(saveWR, Transition.None);
                     Text: ="Add Another WR"
                     Tooltip: ="If you have more than one SCROM class package work request, please submit a different WR order with correct Content Package ID"
                     Width: =245

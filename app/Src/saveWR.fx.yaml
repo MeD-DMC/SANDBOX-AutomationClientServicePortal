@@ -1,4 +1,4 @@
-newHome As screen:
+saveWR As screen:
     LoadingSpinnerColor: =RGBA(31, 124, 155, 1)
     OnVisible: =//Reset(sdd_courseID_8);Reset(slnc_courseID_tf_7);Reset(slnc_classID_8);Reset(sdd_classID_8);
 

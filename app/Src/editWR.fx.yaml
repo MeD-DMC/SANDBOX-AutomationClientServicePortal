@@ -897,8 +897,6 @@ editWR As screen:
                                     project_status_date:dateP_submitted_2.SelectedDate,
                                     //projectStatus:{'@odata.type':"#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",Id: dd_projectstatus_1.Selected.Id,Value:dd_projectstatus_1.Selected.Value},
                                     projectStatus: Text(LookUp(ProjectStatus,ID = 5).ID), 
-                                    scormID_EN:If(IsBlank(slnc_scormID_6), "", If(dd_requestLan_6.SelectedText.Value = "EN", slnc_scormID_6.Text,"")),
-                                    scormID_FR:If(IsBlank(slnc_scormID_6), "",If(dd_requestLan_6.SelectedText.Value = "FR", slnc_scormID_6.Text,"")),
                                     isAccessibility:cb_isaccessibility_2.Value,
                                     isGNWT:cb_isgnwt_2.Value,
                                     isAdhoc: cb_isadhoc_1.Value,
@@ -978,9 +976,7 @@ editWR As screen:
                                     request_details: If(IsBlank(textInput_requestDetails_3),"",textInput_requestDetails_3.Text),
                                     project_status_date:dateP_submitted_2.SelectedDate,
                                     //projectStatus:{'@odata.type':"#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",Id: dd_projectstatus_1.Selected.Id,Value:dd_projectstatus_1.Selected.Value},
-                                    projectStatus: Text(LookUp(ProjectStatus,ID = 5).ID), 
-                                    scormID_EN:If(IsBlank(slnc_scormID_6), "", If(dd_requestLan_6.SelectedText.Value = "EN", slnc_scormID_6.Text,"")),
-                                    scormID_FR:If(IsBlank(slnc_scormID_6), "",If(dd_requestLan_6.SelectedText.Value = "FR", slnc_scormID_6.Text,"")),
+                                    projectStatus: Text(LookUp(ProjectStatus,ID = 5).ID),
                                     isAccessibility:cb_isaccessibility_2.Value,
                                     isGNWT:cb_isgnwt_2.Value,
                                     isAdhoc: cb_isadhoc_1.Value,
@@ -988,7 +984,7 @@ editWR As screen:
                                     submitted_date:dateP_submitted_2.SelectedDate,
                                     requestor_email:Office365Users.MyProfileV2().mail,
                                     CustomA:dp_WP_Tab_1.SelectedText.Value,
-                                    CustomB:txtinput_wp_row_number_1.Text,
+                                    CustomB:If(!IsBlank(txtinput_wp_row_number_1),txtinput_wp_row_number_1.Text,""),
                                     CustomC:If(!IsBlank(txtInput_adaptlink_1), Substitute(txtInput_adaptlink_1.Text,"/preview/5dc446fd27f08836496b6b9e/","/#editor/")&"menu", " ")
                                 
                                 });
