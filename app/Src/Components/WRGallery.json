@@ -5,8 +5,8 @@
     "AllowAccessToGlobals": false,
     "AllowCustomization": true,
     "Description": "",
-    "Name": "Header",
-    "TemplateGuid": "45fb0e9bfeb7446e8453bf428c2f970c"
+    "Name": "WRGallery",
+    "TemplateGuid": "aee4c9440eec418b9d6ea72a513d5c54"
   },
   "ComponentType": "CanvasComponent",
   "CustomGroupControlTemplateName": "",
@@ -19,15 +19,6 @@
       "PropertyDataTypeKey": "String",
       "Tooltip": "user selected language",
       "Type": "{\"Version\":\"1.323\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
-    },
-    {
-      "Category": 0,
-      "DisplayName": "College Banner",
-      "Hidden": true,
-      "Name": "CollegeBanner",
-      "PropertyDataTypeKey": "Image",
-      "Tooltip": "banner required for some reason on screens",
-      "Type": "{\"Version\":\"1.323\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Image\",\"EnumString\":\"\",\"Type\":[]}}"
     }
   ],
   "FirstParty": true,
@@ -38,8 +29,8 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "637850375089531533",
-  "Name": "45fb0e9bfeb7446e8453bf428c2f970c",
+  "LastModifiedTimestamp": "637850377755437121",
+  "Name": "aee4c9440eec418b9d6ea72a513d5c54",
   "OverridableProperties": {},
-  "Version": "637835840545616238"
+  "Version": "637850375421381679"
 }
