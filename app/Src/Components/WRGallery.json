@@ -5,7 +5,7 @@
     "AllowAccessToGlobals": false,
     "AllowCustomization": true,
     "Description": "",
-    "Name": "WRGallery",
+    "Name": "WRGallery_1",
     "TemplateGuid": "aee4c9440eec418b9d6ea72a513d5c54"
   },
   "ComponentType": "CanvasComponent",
@@ -19,6 +19,42 @@
       "PropertyDataTypeKey": "String",
       "Tooltip": "user selected language",
       "Type": "{\"Version\":\"1.323\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Data Source",
+      "Hidden": false,
+      "Name": "DataSource",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "name of sharepoint list that will be the data source",
+      "Type": "{\"Version\":\"1.323\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Filter Field",
+      "Hidden": false,
+      "Name": "FilterField",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "Field to be used to filter list",
+      "Type": "{\"Version\":\"1.323\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Component Title",
+      "Hidden": false,
+      "Name": "ComponentTitle",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "query title",
+      "Type": "{\"Version\":\"1.323\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Search Criteria",
+      "Hidden": false,
+      "Name": "SearchCriteria",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "Values to filter selected field in list",
+      "Type": "{\"Version\":\"1.323\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
     }
   ],
   "FirstParty": true,
@@ -29,7 +65,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "637850377755437121",
+  "LastModifiedTimestamp": "637852498909175901",
   "Name": "aee4c9440eec418b9d6ea72a513d5c54",
   "OverridableProperties": {},
   "Version": "637850375421381679"

@@ -1,9 +1,2 @@
 Debug As screen:
 
-    Button1 As button:
-        OnSelect: =//testfllow.Run();
-        Text: ="Button"
-        X: =40
-        Y: =40
-        ZIndex: =1
-
