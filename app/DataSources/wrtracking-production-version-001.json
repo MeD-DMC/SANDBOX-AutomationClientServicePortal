@@ -3,7 +3,7 @@
     "ApiId": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
     "CdpRevision": {
       "BaseUrl": "/",
-      "LastChangedTimeString": "2022-03-24T16:38:32.5950000Z",
+      "LastChangedTimeString": "2022-04-12T16:42:16.0150000Z",
       "RevisionNumber": 1
     },
     "ConnectedDataSourceInfoNameMapping": {
@@ -103,6 +103,9 @@
       "projectStatus_temp#Id": "projectStatus Id",
       "projectStatus_x003a__x0020_SortP": "projectStatus: SortPS",
       "projectStatus_x003a__x0020_SortP#Id": "projectStatus: SortPS Id",
+      "requestor_list": "requestor_list",
+      "requestor_list#Claims": "requestor_list Claims",
+      "requestor_list@odata.type": "requestor_list (requestor_list@odata.type)",
       "submissionDate": "submissionDate",
       "Title": "Title"
     },

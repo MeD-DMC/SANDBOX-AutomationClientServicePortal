@@ -189,7 +189,7 @@ reAssignWR As screen:
                                 PaddingTop: =0
                                 Size: =14
                                 Text: |-
-                                    =If(dd_lan_selector_6.SelectedText.Value="EN", LookUp(langPack, Title="60").English, LookUp(langPack, Title="60").French) & ": " & ThisItem.field_13
+                                    =If(dd_lan_selector_6.SelectedText.Value="EN", LookUp(langPack, Title="60").English, LookUp(langPack, Title="60").French) & ": " & ThisItem.SLNC_CourseID
                                 VerticalAlign: =VerticalAlign.Top
                                 Width: =Parent.TemplateWidth - 104
                                 X: =61
@@ -205,7 +205,7 @@ reAssignWR As screen:
                                 PaddingTop: =0
                                 Size: =12
                                 Text: |-
-                                    =If(dd_lan_selector_6.SelectedText.Value="EN", LookUp(langPack, Title="65").English, LookUp(langPack, Title="65").French) & ": " & ThisItem.field_1
+                                    =If(dd_lan_selector_6.SelectedText.Value="EN", LookUp(langPack, Title="65").English, LookUp(langPack, Title="65").French) & ": " & ThisItem.requestor_name
                                 VerticalAlign: =VerticalAlign.Top
                                 Width: =503
                                 X: =153
@@ -245,7 +245,7 @@ reAssignWR As screen:
                                 Size: =12
                                 Text: |-
                                     =If(dd_lan_selector_6.SelectedText.Value="EN", LookUp(langPack, Title="48").English, LookUp(langPack, Title="48").French)
-                                     & ":" & ThisItem.field_15
+                                     & ":" & ThisItem.SLNC_CourseNameEN
                                 VerticalAlign: =VerticalAlign.Top
                                 Width: =536
                                 X: =61

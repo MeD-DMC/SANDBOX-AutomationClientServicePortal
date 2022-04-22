@@ -43,7 +43,7 @@
                     Fill: =RGBA(31, 124, 155, 1)
                     HoverFill: =ColorFade(RGBA(31, 124, 155, 1), -20%)
                     OnSelect: |
-                        =Navigate(wr_status, Transition.None);Reset(PlannedGallery);Refresh('wrtracking-production-version-001');Reset(ActiveGallery);ClearCollect(numWRCol, (Filter('wrtracking-production-version-001',field_2=requestorEmail)));
+                        =Navigate(wr_status, Transition.None);Reset(PlannedGallery);Refresh('wrtracking-production-version-001');Reset(ActiveGallery);ClearCollect(numWRCol, (Filter('wrtracking-production-version-001',requestor_email=requestorEmail)));
                     Text: ="Home Page"
                     Tooltip: ="If you have more than one SCROM class package work request, please submit a different WR order with correct Content Package ID"
                     Width: =245

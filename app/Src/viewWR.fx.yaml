@@ -81,7 +81,7 @@ viewWR As screen:
                             ZIndex: =3
 
                         dateP_dueDate_7 As datepicker:
-                            DefaultDate: =ActiveGallery.Selected.field_5
+                            DefaultDate: =ActiveGallery.Selected.due_date
                             DisplayMode: =DisplayMode.View
                             Format: ="yyyy-mm-dd"
                             Reset: =btn_Clear_7.Pressed
@@ -92,8 +92,8 @@ viewWR As screen:
                             ZIndex: =4
 
                         textInput_Bizline_7 As combobox:
-                            Default: =ActiveGallery.Selected.field_6
-                            DefaultSelectedItems: =[ActiveGallery.Selected.field_6.Value]
+                            Default: =ActiveGallery.Selected.businessLine
+                            DefaultSelectedItems: =[ActiveGallery.Selected.businessLine.Value]
                             DisplayFields: =["Value"]
                             DisplayMode: =DisplayMode.View
                             InputTextPlaceholder: ="Select the Business Line"
@@ -120,7 +120,7 @@ viewWR As screen:
                             ZIndex: =6
 
                         dd_medium_7 As dropdown:
-                            Default: =ActiveGallery.Selected.field_8.Value
+                            Default: =ActiveGallery.Selected.medium.Value
                             DisplayMode: =DisplayMode.View
                             Items: =Choices('wrtracking-production-version-001'.medium)
                             OnChange: |-
@@ -173,7 +173,7 @@ viewWR As screen:
                                 ZIndex: =14
 
                             dateP_submitted_7 As datepicker:
-                                DefaultDate: =ActiveGallery.Selected.field_4
+                                DefaultDate: =ActiveGallery.Selected.submitted_date
                                 DisplayMode: =DisplayMode.View
                                 Format: ="yyyy-mm-dd"
                                 PaddingLeft: =5
@@ -185,7 +185,7 @@ viewWR As screen:
                                 ZIndex: =15
 
                             dd_typeofwork_7 As dropdown:
-                                Default: =ActiveGallery.Selected.field_7.Value
+                                Default: =ActiveGallery.Selected.typeofwork.Value
                                 DisplayMode: =DisplayMode.View
                                 Height: =43
                                 Items: =Choices('wrtracking-production-version-001'.typeofwork)
@@ -210,7 +210,7 @@ viewWR As screen:
                             ZIndex: =17
 
                             textInput_Requestor_7 As text:
-                                Default: =ActiveGallery.Selected.field_1
+                                Default: =ActiveGallery.Selected.requestor_name
                                 DisplayMode: =DisplayMode.View
                                 Height: =38
                                 PaddingLeft: =5
@@ -240,7 +240,7 @@ viewWR As screen:
                                 ZIndex: =11
 
                             dd_requestLan_7 As dropdown:
-                                Default: =ActiveGallery.Selected.field_9.Value
+                                Default: =ActiveGallery.Selected.request_language.Value
                                 DisplayMode: =DisplayMode.View
                                 Items: =Choices('wrtracking-production-version-001'.request_language)
                                 Reset: =btn_Clear_7.Pressed
@@ -283,12 +283,12 @@ viewWR As screen:
 
                         dd_projectstatus_3 As dropdown:
                             Default: |
-                                =If(dd_lan_selector_5.SelectedText.Value="EN", LookUp(ProjectStatus, Title=ActiveGallery.Selected.projectStatus_temp.Value).Title, LookUp(ProjectStatus, Title=ActiveGallery.Selected.projectStatus_temp.Value).French)
+                                =If(dd_lan_selector_5.SelectedText.Value="EN", LookUp(ProjectStatus, Title=ActiveGallery.Selected.projectStatus.Value).Title, LookUp(ProjectStatus, Title=ActiveGallery.Selected.projectStatus.Value).French)
                             DisplayMode: =DisplayMode.View
                             FontWeight: =FontWeight.Semibold
                             Height: =54
                             Items: |-
-                                =[If(dd_lan_selector_5.SelectedText.Value="EN", LookUp(ProjectStatus, Title=ActiveGallery.Selected.projectStatus_temp.Value).Title, LookUp(ProjectStatus, Title=ActiveGallery.Selected.projectStatus_temp.Value).French)
+                                =[If(dd_lan_selector_5.SelectedText.Value="EN", LookUp(ProjectStatus, Title=ActiveGallery.Selected.projectStatus.Value).Title, LookUp(ProjectStatus, Title=ActiveGallery.Selected.projectStatus.Value).French)
                                 ]
                             Reset: =btn_Clear_5.Pressed
                             Width: =205
@@ -326,7 +326,7 @@ viewWR As screen:
                                 ZIndex: =31
 
                             txtInput_adaptlink_3 As text:
-                                Default: =PlannedGallery.Selected.field_54
+                                Default: =PlannedGallery.Selected.CustomC
                                 DisplayMode: =DisplayMode.View
                                 Height: =51
                                 Visible: =If(dd_medium_3.SelectedText.Value = "ADAPT (.html)", true,false)
@@ -367,7 +367,7 @@ viewWR As screen:
                                 ZIndex: =24
 
                             dp_WP_Tab_3 As dropdown:
-                                Default: =PlannedGallery.Selected.field_52.Value
+                                Default: =PlannedGallery.Selected.CustomA.Value
                                 DisplayMode: =DisplayMode.View
                                 Items: =["Select / Choisir","Q1_2021","Q2_2021","Q3_2021","Q4_2021","Q1_2022","Q2_2022","Q3_2022","Q4_2022","Q1_2023","Q2_2023","Q3_2023","Q4_2023","Q1_2024","Q2_2024","Q3_2024","Q4_2024",]
                                 Visible: =false
@@ -377,7 +377,7 @@ viewWR As screen:
                                 ZIndex: =26
 
                             txtinput_wp_row_number_3 As text:
-                                Default: =PlannedGallery.Selected.field_53
+                                Default: =PlannedGallery.Selected.CustomB
                                 DisplayMode: =DisplayMode.View
                                 Height: =46
                                 HintText: ="Input the Work Plan Row Number"
@@ -474,7 +474,7 @@ viewWR As screen:
                                 ZIndex: =10
 
                             slnc_contentTitleEN_7 As text:
-                                Default: =ActiveGallery.Selected.field_17
+                                Default: =ActiveGallery.Selected.SLNC_ContentTitleEN
                                 DisplayMode: =DisplayMode.View
                                 Height: =50
                                 TabIndex: =34
@@ -529,7 +529,7 @@ viewWR As screen:
                                 ZIndex: =25
 
                             slnc_courseID_tf_6 As text:
-                                Default: =ActiveGallery.Selected.field_13
+                                Default: =ActiveGallery.Selected.SLNC_CourseID
                                 DisplayMode: =DisplayMode.View
                                 Height: =38
                                 TabIndex: =21
@@ -539,7 +539,7 @@ viewWR As screen:
                                 ZIndex: =28
 
                             sdd_courseID_7 As text:
-                                Default: =If(Value(ActiveGallery.Selected.field_11)=0, "99999999", ActiveGallery.Selected.field_11)
+                                Default: =If(Value(ActiveGallery.Selected.SDD_CourseID)=0, "99999999", ActiveGallery.Selected.SDD_CourseID)
                                 DisplayMode: =DisplayMode.View
                                 Height: =38
                                 Reset: =btn_Clear_7.Pressed
@@ -557,7 +557,7 @@ viewWR As screen:
                             ZIndex: =31
 
                             sdd_classID_7 As text:
-                                Default: =If(Value(ActiveGallery.Selected.field_12)=0, "99999999", ActiveGallery.Selected.field_12)
+                                Default: =If(Value(ActiveGallery.Selected.SDD_ClassID)=0, "99999999", ActiveGallery.Selected.SDD_ClassID)
                                 DisplayMode: =DisplayMode.View
                                 Height: =38
                                 Reset: =btn_Clear_7.Pressed
@@ -577,7 +577,7 @@ viewWR As screen:
                                 ZIndex: =19
 
                             slnc_classID_7 As text:
-                                Default: =ActiveGallery.Selected.field_14
+                                Default: =ActiveGallery.Selected.SLNC_ClassID
                                 DisplayMode: =DisplayMode.View
                                 Height: =38
                                 OnChange: =
@@ -636,7 +636,7 @@ viewWR As screen:
                                 ZIndex: =3
 
                             slnc_scormID_7 As text:
-                                Default: =If(ActiveGallery.Selected.field_9.Value = "EN",Last(dataForm.CourseFolderName).CourseFolderName, ActiveGallery.Selected.field_22)
+                                Default: =If(ActiveGallery.Selected.request_language.Value = "EN",Last(dataForm.CourseFolderName).CourseFolderName, ActiveGallery.Selected.scormID_FR)
                                 DisplayMode: =DisplayMode.View
                                 Height: =41
                                 Reset: =btn_Clear_7.Pressed
@@ -664,7 +664,7 @@ viewWR As screen:
                                 ZIndex: =1
 
                             textInput_requestDetails_7 As text:
-                                Default: =ActiveGallery.Selected.field_37
+                                Default: =ActiveGallery.Selected.request_details
                                 DisplayMode: =DisplayMode.View
                                 Height: =187
                                 Mode: =TextMode.MultiLine
@@ -713,7 +713,7 @@ viewWR As screen:
 
                             slnc_courseNameEN_6 As text:
                                 BorderColor: =//If(!IsBlank(slnc_courseNameEN.Text),If(IsMatch( slnc_courseNameEN.Text, "^[A-Za-z0-9-_ ]+$"),RGBA(0, 18, 107, 1),Color.Red),RGBA(0, 18, 107, 1))
-                                Default: =ActiveGallery.Selected.field_15
+                                Default: =ActiveGallery.Selected.SLNC_CourseNameEN
                                 DisplayMode: =DisplayMode.View
                                 Height: =108
                                 Mode: =TextMode.MultiLine
@@ -734,7 +734,7 @@ viewWR As screen:
                                 ZIndex: =16
 
                             slnc_courseNameFR_6 As text:
-                                Default: =ActiveGallery.Selected.field_16
+                                Default: =ActiveGallery.Selected.SLNC_CourseNameFR
                                 DisplayMode: =DisplayMode.View
                                 Height: =108
                                 Mode: =TextMode.MultiLine
@@ -772,7 +772,7 @@ viewWR As screen:
                                 ZIndex: =9
 
                             slnc_contentTitleFR_7 As text:
-                                Default: =ActiveGallery.Selected.field_18
+                                Default: =ActiveGallery.Selected.SLNC_ContentTitleFR
                                 DisplayMode: =DisplayMode.View
                                 Height: =50
                                 TabIndex: =35

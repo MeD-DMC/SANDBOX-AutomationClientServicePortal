@@ -183,7 +183,7 @@ backup As screen:
                                 ZIndex: =14
 
                             dateP_submitted_4 As datepicker:
-                                DefaultDate: =PlannedGallery.Selected.field_4
+                                DefaultDate: =PlannedGallery.Selected.submitted_date
                                 DisplayMode: =DisplayMode.View
                                 Format: ="yyyy-mm-dd"
                                 PaddingLeft: =5
@@ -197,7 +197,7 @@ backup As screen:
                             dd_typeofwork_4 As dropdown:
                                 Default: ="Select / Choisir"
                                 Height: =43
-                                Items: =PlannedGallery.Selected.field_7
+                                Items: =PlannedGallery.Selected.typeofwork
                                 OnChange: |-
                                     =If(
                                     
@@ -219,7 +219,7 @@ backup As screen:
                             ZIndex: =17
 
                             textInput_Requestor_4 As text:
-                                Default: =PlannedGallery.Selected.field_1
+                                Default: =PlannedGallery.Selected.requestor_name
                                 Height: =38
                                 Reset: =btn_Clear_4.Pressed
                                 TabIndex: =8
@@ -250,7 +250,7 @@ backup As screen:
 
                             dd_requestLan_4 As dropdown:
                                 Default: ="Select / Choisir"
-                                Items: =PlannedGallery.Selected.field_9
+                                Items: =PlannedGallery.Selected.request_language
                                 Reset: =btn_Clear_4.Pressed
                                 TabIndex: =14
                                 Width: =248
@@ -286,7 +286,7 @@ backup As screen:
                                 ZIndex: =3
 
                             dateP_dueDate_4 As datepicker:
-                                DefaultDate: =PlannedGallery.Selected.field_5
+                                DefaultDate: =PlannedGallery.Selected.due_date
                                 Format: ="yyyy-mm-dd"
                                 Reset: =btn_Clear_4.Pressed
                                 TabIndex: =18
@@ -300,7 +300,7 @@ backup As screen:
                                 DisplayFields: =["Value"]
                                 InputTextPlaceholder: ="Select the Business Line"
                                 IsSearchable: =false
-                                Items: =PlannedGallery.Selected.field_6
+                                Items: =PlannedGallery.Selected.businessLine
                                 Reset: =btn_Clear_4.Pressed
                                 SearchFields: =["Value"]
                                 SearchItems: =[]
@@ -324,7 +324,7 @@ backup As screen:
 
                             dd_medium_4 As dropdown:
                                 Default: ="Select / Choisir"
-                                Items: =PlannedGallery.Selected.field_8
+                                Items: =PlannedGallery.Selected.medium
                                 OnChange: |-
                                     =If(
                                     IsMatch(dd_medium_4.SelectedText.Value,"pptx",Contains) Or 
@@ -378,7 +378,7 @@ backup As screen:
                             ZIndex: =31
 
                             slnc_intlTitle_4 As text:
-                                Default: =PlannedGallery.Selected.field_18
+                                Default: =PlannedGallery.Selected.SLNC_ContentTitleFR
                                 Height: =41
                                 Reset: =btn_Clear_4.Pressed
                                 TabIndex: =37
@@ -433,7 +433,7 @@ backup As screen:
                                 ZIndex: =12
 
                             slnc_contentTitleEN_4 As text:
-                                Default: =PlannedGallery.Selected.field_17
+                                Default: =PlannedGallery.Selected.SLNC_ContentTitleEN
                                 Height: =43
                                 TabIndex: =34
                                 Visible: =If(dd_requestLan_4.Selected.Value ="FR",false,true)
@@ -502,7 +502,7 @@ backup As screen:
                                 ZIndex: =27
 
                             slnc_courseID_tf_3 As text:
-                                Default: =PlannedGallery.Selected.field_13
+                                Default: =PlannedGallery.Selected.SLNC_CourseID
                                 Height: =38
                                 TabIndex: =21
                                 Width: =300
@@ -511,7 +511,7 @@ backup As screen:
                                 ZIndex: =29
 
                             sdd_courseID_4 As text:
-                                Default: =PlannedGallery.Selected.field_11
+                                Default: =PlannedGallery.Selected.SDD_CourseID
                                 Height: =38
                                 Reset: =btn_Clear_4.Pressed
                                 TabIndex: =28
@@ -528,7 +528,7 @@ backup As screen:
                             ZIndex: =31
 
                             sdd_classID_4 As text:
-                                Default: =PlannedGallery.Selected.field_12
+                                Default: =PlannedGallery.Selected.SDD_ClassID
                                 Height: =38
                                 Reset: =btn_Clear_4.Pressed
                                 TabIndex: =30
@@ -549,7 +549,7 @@ backup As screen:
                                 ZIndex: =21
 
                             slnc_classID_4 As text:
-                                Default: =PlannedGallery.Selected.field_14
+                                Default: =PlannedGallery.Selected.SLNC_ClassID
                                 Height: =38
                                 OnChange: =
                                 Reset: |
@@ -609,7 +609,7 @@ backup As screen:
                                 ZIndex: =5
 
                             slnc_scormID_4 As text:
-                                Default: =If(PlannedGallery.Selected.field_9.Value = "EN",PlannedGallery.Selected.field_21, PlannedGallery.Selected.field_22)
+                                Default: =If(PlannedGallery.Selected.request_language.Value = "EN",PlannedGallery.Selected.scormID_EN, PlannedGallery.Selected.scormID_FR)
                                 Height: =41
                                 Reset: =btn_Clear_4.Pressed
                                 TabIndex: =39
@@ -646,7 +646,7 @@ backup As screen:
                                 ZIndex: =3
 
                             textInput_requestDetails_4 As text:
-                                Default: =PlannedGallery.Selected.field_37
+                                Default: =PlannedGallery.Selected.request_details
                                 Height: =158
                                 Mode: =TextMode.MultiLine
                                 Reset: =btn_Clear_4.Pressed
@@ -695,7 +695,7 @@ backup As screen:
 
                             slnc_courseNameEN_3 As text:
                                 BorderColor: =//If(!IsBlank(slnc_courseNameEN.Text),If(IsMatch( slnc_courseNameEN.Text, "^[A-Za-z0-9-_ ]+$"),RGBA(0, 18, 107, 1),Color.Red),RGBA(0, 18, 107, 1))
-                                Default: =PlannedGallery.Selected.field_15
+                                Default: =PlannedGallery.Selected.SLNC_CourseNameEN
                                 Height: =108
                                 Mode: =TextMode.MultiLine
                                 Reset: =btn_Clear_4.Pressed
@@ -716,7 +716,7 @@ backup As screen:
                                 ZIndex: =18
 
                             slnc_courseNameFR_3 As text:
-                                Default: =PlannedGallery.Selected.field_16
+                                Default: =PlannedGallery.Selected.SLNC_CourseNameFR
                                 Height: =108
                                 Mode: =TextMode.MultiLine
                                 Reset: |

@@ -114,7 +114,7 @@ editWR As screen:
                                 Default: ="Select / Choisir"
                                 DisplayMode: =DisplayMode.View
                                 Height: =43
-                                Items: =PlannedGallery.Selected.field_7
+                                Items: =PlannedGallery.Selected.typeofwork
                                 OnChange: |-
                                     =If(
                                     
@@ -138,7 +138,7 @@ editWR As screen:
                             textInput_Requestor_3 As text:
                                 BorderColor: |
                                     =RGBA(31, 124, 155, 1)
-                                Default: =PlannedGallery.Selected.field_1
+                                Default: =PlannedGallery.Selected.requestor_name
                                 Height: =38
                                 Reset: =btn_Clear_3.Pressed
                                 TabIndex: =8
@@ -171,7 +171,7 @@ editWR As screen:
                                 ChevronBackground: |
                                     =RGBA(31, 124, 155, 1)
                                 ChevronHoverBackground: =ColorFade(RGBA(31, 124, 155, 1), -20%)
-                                Default: =PlannedGallery.Selected.field_9.Value
+                                Default: =PlannedGallery.Selected.request_language.Value
                                 HoverColor: =RGBA(255, 255, 255, 1)
                                 Items: =Choices('wrtracking-production-version-001'.request_language)
                                 Reset: =btn_Clear_3.Pressed
@@ -209,7 +209,7 @@ editWR As screen:
 
                             dateP_dueDate_3 As datepicker:
                                 BorderColor: =RGBA(31, 124, 155, 1)
-                                DefaultDate: =PlannedGallery.Selected.field_5
+                                DefaultDate: =PlannedGallery.Selected.due_date
                                 Format: ="yyyy-mm-dd"
                                 IconBackground: =RGBA(31, 124, 155, 1)
                                 Reset: =btn_Clear_3.Pressed
@@ -223,8 +223,8 @@ editWR As screen:
                                 BorderColor: =RGBA(31, 124, 155, 1)
                                 ChevronBackground: =RGBA(31, 124, 155, 1)
                                 ChevronHoverBackground: =ColorFade(RGBA(31, 124, 155, 1), -20%)
-                                Default: =PlannedGallery.Selected.field_6
-                                DefaultSelectedItems: =PlannedGallery.Selected.field_6
+                                Default: =PlannedGallery.Selected.businessLine
+                                DefaultSelectedItems: =PlannedGallery.Selected.businessLine
                                 DisplayFields: =["Value"]
                                 HoverColor: =RGBA(255, 255, 255, 1)
                                 InputTextPlaceholder: ="Select the Business Line"
@@ -255,7 +255,7 @@ editWR As screen:
                                 BorderColor: =RGBA(31, 124, 155, 1)
                                 ChevronBackground: =RGBA(31, 124, 155, 1)
                                 ChevronHoverBackground: =ColorFade(RGBA(31, 124, 155, 1), -20%)
-                                Default: =PlannedGallery.Selected.field_8.Value
+                                Default: =PlannedGallery.Selected.medium.Value
                                 HoverColor: =RGBA(255, 255, 255, 1)
                                 HoverFill: =RGBA(31, 124, 155, 1)
                                 Items: =Choices('wrtracking-production-version-001'.medium)
@@ -406,7 +406,7 @@ editWR As screen:
                                 ZIndex: =24
 
                             dp_WP_Tab_1 As dropdown:
-                                Default: =PlannedGallery.Selected.field_52.Value
+                                Default: =PlannedGallery.Selected.CustomA.Value
                                 Height: |
                                     =0
                                 Items: =["Select / Choisir","Q1_2021","Q2_2021","Q3_2021","Q4_2021","Q1_2022","Q2_2022","Q3_2022","Q4_2022","Q1_2023","Q2_2023","Q3_2023","Q4_2023","Q1_2024","Q2_2024","Q3_2024","Q4_2024",]
@@ -417,7 +417,7 @@ editWR As screen:
                                 ZIndex: =28
 
                             txtinput_wp_row_number_1 As text:
-                                Default: =PlannedGallery.Selected.field_53
+                                Default: =PlannedGallery.Selected.CustomB
                                 Height: |
                                     =0
                                 HintText: ="Input the Work Plan Row Number"
@@ -518,7 +518,7 @@ editWR As screen:
 
                             slnc_contentTitleEN_3 As text:
                                 BorderColor: =RGBA(31, 124, 155, 1)
-                                Default: =PlannedGallery.Selected.field_17
+                                Default: =PlannedGallery.Selected.SLNC_ContentTitleEN
                                 Height: =43
                                 TabIndex: =34
                                 Width: =950
@@ -573,7 +573,7 @@ editWR As screen:
 
                             slnc_courseID_tf_2 As text:
                                 BorderColor: =RGBA(31, 124, 155, 1)
-                                Default: =PlannedGallery.Selected.field_13
+                                Default: =PlannedGallery.Selected.SLNC_CourseID
                                 Height: =38
                                 HoverBorderColor: =RGBA(31, 124, 155, 1)
                                 HoverFill: =RGBA(31, 124, 155, 1)
@@ -585,7 +585,7 @@ editWR As screen:
 
                             sdd_courseID_3 As text:
                                 BorderColor: =RGBA(31, 124, 155, 1)
-                                Default: =PlannedGallery.Selected.field_11
+                                Default: =PlannedGallery.Selected.SDD_CourseID
                                 Height: =38
                                 HoverBorderColor: =RGBA(31, 124, 155, 1)
                                 HoverFill: =RGBA(31, 124, 155, 1)
@@ -605,7 +605,7 @@ editWR As screen:
 
                             sdd_classID_3 As text:
                                 BorderColor: =RGBA(31, 124, 155, 1)
-                                Default: =PlannedGallery.Selected.field_12
+                                Default: =PlannedGallery.Selected.SDD_ClassID
                                 Height: =38
                                 Reset: =btn_Clear_3.Pressed
                                 TabIndex: =30
@@ -625,7 +625,7 @@ editWR As screen:
 
                             slnc_classID_3 As text:
                                 BorderColor: =RGBA(31, 124, 155, 1)
-                                Default: =PlannedGallery.Selected.field_14
+                                Default: =PlannedGallery.Selected.SLNC_ClassID
                                 Height: =38
                                 OnChange: =
                                 Reset: |
@@ -714,7 +714,7 @@ editWR As screen:
 
                             textInput_requestDetails_3 As text:
                                 BorderColor: =RGBA(31, 124, 155, 1)
-                                Default: =PlannedGallery.Selected.field_37
+                                Default: =PlannedGallery.Selected.request_details
                                 Height: =158
                                 Mode: =TextMode.MultiLine
                                 Reset: =btn_Clear_3.Pressed
@@ -762,7 +762,7 @@ editWR As screen:
 
                             slnc_courseNameEN_2 As text:
                                 BorderColor: =RGBA(31, 124, 155, 1)
-                                Default: =PlannedGallery.Selected.field_15
+                                Default: =PlannedGallery.Selected.SLNC_CourseNameEN
                                 Height: =108
                                 HoverBorderColor: =RGBA(31, 124, 155, 1)
                                 Mode: =TextMode.MultiLine
@@ -784,7 +784,7 @@ editWR As screen:
 
                             slnc_courseNameFR_2 As text:
                                 BorderColor: =RGBA(31, 124, 155, 1)
-                                Default: =PlannedGallery.Selected.field_16
+                                Default: =PlannedGallery.Selected.SLNC_CourseNameFR
                                 Height: =108
                                 Mode: =TextMode.MultiLine
                                 Reset: |
@@ -822,7 +822,7 @@ editWR As screen:
 
                             slnc_contentTitleFR_3 As text:
                                 BorderColor: =RGBA(31, 124, 155, 1)
-                                Default: =PlannedGallery.Selected.field_18
+                                Default: =PlannedGallery.Selected.SLNC_ContentTitleFR
                                 Height: =43
                                 TabIndex: =35
                                 Width: =950
@@ -873,9 +873,7 @@ editWR As screen:
                             Height: =47
                             HoverFill: =ColorFade(RGBA(31, 124, 155, 1), -20%)
                             OnSelect: |+
-                                =
-                                    Set(courseNameFolder, Concat(Filter(Split(slnc_courseNameEN_2.Text,""),IsMatch(Result,"^[a-zA-Z0-9\s]+")),Result));
-                                
+                                =Set(courseNameFolder, Concat(Filter(Split(slnc_courseNameEN_2.Text,""),IsMatch(Result,"^[a-zA-Z0-9\s]+")),Result));
                                 ClearCollect(formData,
                                 {
                                     ID: PlannedGallery.Selected.ID,
@@ -889,7 +887,7 @@ editWR As screen:
                                     CourseFolderName:If(IsBlank(courseNameFolder),"",courseNameFolder),
                                     SLNC_ClassID:If(IsBlank(slnc_classID_3), 0,Value(slnc_classID_3.Text)),
                                     SLNC_CourseID:If(IsBlank(slnc_courseID_tf_2),0,Value(slnc_courseID_tf_2.Text)),
-                                    SDD_ClassID:If(IsBlank(sdd_classID_3),0,Value(sdd_classID_3.Text)),
+                                    SDD_ClassID:If(IsBlank(sdd_classID_3),0,""),
                                     SDD_CourseID:If(IsBlank(sdd_courseID_3),0,Value(sdd_courseID_3.Text)),
                                     SLNC_ContentTitleEN: If(IsBlank(slnc_contentTitleEN_3),"",slnc_contentTitleEN_3.Text),
                                     SLNC_ContentTitleFR:If(IsBlank(slnc_contentTitleFR_3),"",slnc_contentTitleFR_3.Text),
@@ -913,7 +911,7 @@ editWR As screen:
                                 Reset(dateP_submitted_2);Reset(dd_projectstatus_1);Reset(cb_isgnwt_2);Reset(cb_isaccessibility_2);Reset(dateP_dueDate_2);Reset(dateP_submitted_2);Reset(cb_isadhoc_1);Reset(dp_WP_Tab_1);
                                 Reset(txtinput_wp_row_number_1);Reset(txtInput_adaptlink_1);Reset(sdd_courseID_3);Reset(slnc_courseID_tf_2);Reset(slnc_classID_3);Reset(sdd_classID_3);
                                 Navigate(screen_complete_1,None);
-                                ClearCollect(numWRCol, (Filter('wrtracking-production-version-001',field_2=requestorEmail)));
+                                ClearCollect(numWRCol, (Filter('wrtracking-production-version-001',requestor_email=requestorEmail)));
                                 
                                 
                                 
@@ -930,7 +928,7 @@ editWR As screen:
                             Fill: =RGBA(255, 255, 255, 1)
                             Height: =47
                             HoverFill: =ColorFade(RGBA(31, 124, 155, 1), -20%)
-                            OnSelect: =lbl_warning_6.Visible=false;Back();ClearCollect(numWRCol, (Filter('wrtracking-production-version-001',field_2=requestorEmail)));
+                            OnSelect: =lbl_warning_6.Visible=false;Back();ClearCollect(numWRCol, (Filter('wrtracking-production-version-001',requestor_email=requestorEmail)));
                             TabIndex: =43
                             Text: =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(langPack, Title="34").English, LookUp(langPack, Title="34").French)
                             Width: =213
@@ -996,7 +994,7 @@ editWR As screen:
                                 Reset(dp_WP_Tab_1);Reset(sdd_courseID_3);Reset(slnc_courseID_tf_2);Reset(slnc_classID_3);Reset(sdd_classID_3);
                                 Reset(txtinput_wp_row_number_1);Reset(txtInput_adaptlink_1);
                                 
-                                Navigate(screen_complete, Transition.None);ClearCollect(numWRCol, (Filter('wrtracking-production-version-001',field_2=requestorEmail)));
+                                Navigate(screen_complete, Transition.None);ClearCollect(numWRCol, (Filter('wrtracking-production-version-001',requestor_email=requestorEmail)));
                             TabIndex: =43
                             Text: =If(dd_lan_selector_2.SelectedText.Value="EN", LookUp(langPack, Title="55").English, LookUp(langPack, Title="55").French)
                             Width: =213

@@ -309,7 +309,7 @@ wr_status As screen:
                                 Color: =RGBA(105, 69, 156, 1)
                                 Height: =32
                                 Icon: =Icon.Reload
-                                OnSelect: =Refresh('wrtracking-production-version-001');Reset(PlannedGallery);ClearCollect(numWRCol, (Filter('wrtracking-production-version-001',field_2=requestorEmail)));
+                                OnSelect: =Refresh('wrtracking-production-version-001');Reset(PlannedGallery);ClearCollect(numWRCol, (Filter('wrtracking-production-version-001',requestor_email=requestorEmail)));
                                 Width: =32
                                 X: =Parent.Width-RefreshPlanned.Width-46
                                 ZIndex: =2
@@ -318,7 +318,7 @@ wr_status As screen:
                             AlignInContainer: =AlignInContainer.SetByContainer
                             Height: =560
                             Items: |
-                                =SortByColumns(Filter('wrtracking-production-version-001',field_2= requestorEmail && projectStatus_temp.Value="OnWorkPlan"),"ID",Descending)
+                                =SortByColumns(Filter('wrtracking-production-version-001',requestor_email= requestorEmail && projectStatus.Value="OnWorkPlan"),"ID",Descending)
                                 
                                 //REMOVING WR requests searching for others temporarily ||StartsWith(Title, TextInput_WR_Number.Text)||StartsWith(SLNC_CourseNameEN, TextInput_WR_Number.Text)
                             Layout: =Layout.Vertical
@@ -367,7 +367,7 @@ wr_status As screen:
                                 PaddingTop: =0
                                 Size: =12
                                 Text: |
-                                    =Concatenate(If(dd_lan_selector.SelectedText.Value="EN", LookUp(langPack, Title="47").English, LookUp(langPack, Title="47").French),": ", If(dd_lan_selector.SelectedText.Value="EN", LookUp(ProjectStatus,Title = ThisItem.projectStatus_temp.Value).Title,LookUp(ProjectStatus,Title = ThisItem.projectStatus_temp.Value).French))
+                                    =Concatenate(If(dd_lan_selector.SelectedText.Value="EN", LookUp(langPack, Title="47").English, LookUp(langPack, Title="47").French),": ", If(dd_lan_selector.SelectedText.Value="EN", LookUp(ProjectStatus,Title = ThisItem.projectStatus.Value).Title,LookUp(ProjectStatus,Title = ThisItem.projectStatus.Value).French))
                                 Width: =233
                                 X: =105
                                 Y: =10
@@ -392,7 +392,7 @@ wr_status As screen:
                                 PaddingTop: =0
                                 Size: =12
                                 Text: |-
-                                    =Concatenate(If(dd_lan_selector.SelectedText.Value="EN", LookUp(langPack, Title="48").English, LookUp(langPack, Title="48").French),": ", If(dd_lan_selector.SelectedText.Value="EN", ThisItem.field_15, ThisItem.field_16))
+                                    =Concatenate(If(dd_lan_selector.SelectedText.Value="EN", LookUp(langPack, Title="48").English, LookUp(langPack, Title="48").French),": ", If(dd_lan_selector.SelectedText.Value="EN", ThisItem.SLNC_CourseNameEN, ThisItem.SLNC_CourseNameFR))
                                 VerticalAlign: =VerticalAlign.Top
                                 Width: =PlannedGallery.Width - 80
                                 Y: =47
@@ -420,7 +420,7 @@ wr_status As screen:
                                 PaddingTop: =0
                                 Size: =12
                                 Text: |-
-                                    =Concatenate(If(dd_lan_selector.SelectedText.Value="EN", LookUp(langPack, Title="52").English, LookUp(langPack, Title="52").French),": ", Text(ThisItem.field_32,"yyyy-mmm-dd"))
+                                    =Concatenate(If(dd_lan_selector.SelectedText.Value="EN", LookUp(langPack, Title="52").English, LookUp(langPack, Title="52").French),": ", Text(ThisItem.project_status_date,"yyyy-mmm-dd"))
                                 Width: =270
                                 Y: =97
                                 ZIndex: =35
@@ -467,7 +467,7 @@ wr_status As screen:
                                 Color: =RGBA(205, 28, 105, 1)
                                 Height: =32
                                 Icon: =Icon.Reload
-                                OnSelect: =Refresh('wrtracking-production-version-001');Reset(ActiveGallery);ClearCollect(numWRCol, (Filter('wrtracking-production-version-001',field_2=requestorEmail)));
+                                OnSelect: =Refresh('wrtracking-production-version-001');Reset(ActiveGallery);ClearCollect(numWRCol, (Filter('wrtracking-production-version-001',requestor_email=requestorEmail)));
                                 Width: =32
                                 X: =Parent.Width-RefreshActive.Width -46
                                 ZIndex: =1
@@ -490,7 +490,7 @@ wr_status As screen:
                         "ActiveGallery As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
                             AlignInContainer: =AlignInContainer.SetByContainer
                             Height: =560
-                            Items: =SortByColumns(Filter('wrtracking-production-version-001',field_2= requestorEmail && projectStatus_temp.Value="WithMeD" || field_2= requestorEmail && projectStatus_temp.Value="ToBeLoadedLive" || field_2= requestorEmail && projectStatus_temp.Value="WithDT" || field_2= requestorEmail && projectStatus_temp.Value="OnHold"),"ID",Descending)
+                            Items: =SortByColumns(Filter('wrtracking-production-version-001',requestor_email= requestorEmail && projectStatus.Value="WithMeD" || requestor_email= requestorEmail && projectStatus.Value="ToBeLoadedLive" || requestor_email= requestorEmail && projectStatus.Value="WithDT" || requestor_email= requestorEmail && projectStatus.Value="OnHold"),"ID",Descending)
                             Layout: =Layout.Vertical
                             LayoutMinHeight: =287
                             LayoutMinWidth: =320
@@ -556,7 +556,7 @@ wr_status As screen:
                                 PaddingTop: =0
                                 Size: =12
                                 Text: |-
-                                    =Concatenate(If(dd_lan_selector.SelectedText.Value="EN", LookUp(langPack, Title="47").English, LookUp(langPack, Title="47").French),": ", If(dd_lan_selector.SelectedText.Value="EN", LookUp(ProjectStatus,Title = ThisItem.projectStatus_temp.Value).Title,LookUp(ProjectStatus,Title = ThisItem.projectStatus_temp.Value).French))
+                                    =Concatenate(If(dd_lan_selector.SelectedText.Value="EN", LookUp(langPack, Title="47").English, LookUp(langPack, Title="47").French),": ", If(dd_lan_selector.SelectedText.Value="EN", LookUp(ProjectStatus,Title = ThisItem.projectStatus.Value).Title,LookUp(ProjectStatus,Title = ThisItem.projectStatus.Value).French))
                                 Width: =367
                                 X: =105
                                 Y: =10
@@ -584,7 +584,7 @@ wr_status As screen:
                                 PaddingTop: =0
                                 Size: =12
                                 Text: |-
-                                    =Concatenate(If(dd_lan_selector.SelectedText.Value="EN", LookUp(langPack, Title="48").English, LookUp(langPack, Title="48").French),": ", If(dd_lan_selector.SelectedText.Value="EN", ThisItem.field_15, ThisItem.field_16))
+                                    =Concatenate(If(dd_lan_selector.SelectedText.Value="EN", LookUp(langPack, Title="48").English, LookUp(langPack, Title="48").French),": ", If(dd_lan_selector.SelectedText.Value="EN", ThisItem.SLNC_CourseNameEN, ThisItem.SLNC_CourseNameFR))
                                 VerticalAlign: =VerticalAlign.Top
                                 Width: =425
                                 Y: =50
@@ -599,7 +599,7 @@ wr_status As screen:
                                 PaddingTop: =0
                                 Size: =12
                                 Text: |-
-                                    =Concatenate(If(dd_lan_selector.SelectedText.Value="EN", LookUp(langPack, Title="52").English, LookUp(langPack, Title="52").French),": ", Text(ThisItem.field_32,"yyyy-mmm-dd"))
+                                    =Concatenate(If(dd_lan_selector.SelectedText.Value="EN", LookUp(langPack, Title="52").English, LookUp(langPack, Title="52").French),": ", Text(ThisItem.project_status_date,"yyyy-mmm-dd"))
                                 Width: =270
                                 Y: =97
                                 ZIndex: =45

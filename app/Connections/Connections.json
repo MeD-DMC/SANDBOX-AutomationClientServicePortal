@@ -22,7 +22,7 @@
     "id": "0f748b89-d170-443d-b263-828a7e6d6fd8"
   },
   "16e72adb-12aa-43dd-a044-fa3fb3edb6af": {
-    "connectionInstanceId": "/providers/microsoft.powerapps/apis/shared_logicflows/connections/0615d3f298d24f92a2ee611fa5d9093a",
+    "connectionInstanceId": "/providers/microsoft.powerapps/apis/shared_logicflows/connections/fcd06900135c4a48b7c7eed67eb203e0",
     "connectionParameters": {
       "sku": "Enterprise",
       "workFlowCallbackUri": "https://prod-28.canadacentral.logic.azure.com:443/workflows/4f7a28951eab45c5a162e5ddf7655f3b/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ld5HKyFqNDILiQF4d-d3UwOhYdGttJKHrOEbnRNS344",
@@ -86,7 +86,7 @@
     "id": "1ff97a4e-0bda-4f03-98b4-7dbda5db6c76"
   },
   "29c11814-1e0c-4dfe-b672-cccc648bedfd": {
-    "connectionInstanceId": "/providers/microsoft.powerapps/apis/shared_sharepointonline/connections/b636c629d9d1429cbdc75fc4e90addb6",
+    "connectionInstanceId": "/providers/microsoft.powerapps/apis/shared_sharepointonline/connections/160b3eabdf3844dc962f6efc66188913",
     "connectionParameters": {
       "sku": "Enterprise"
     },
@@ -156,7 +156,7 @@
     "id": "34171488-d34b-4621-8e5c-95d4d1ad6c53"
   },
   "400da4cc-35f0-44a8-a25a-c375c7effc8f": {
-    "connectionInstanceId": "/providers/microsoft.powerapps/apis/shared_logicflows/connections/42e08a5fcead449e93105a67c11327e6",
+    "connectionInstanceId": "/providers/microsoft.powerapps/apis/shared_logicflows/connections/00da8abba30c44c6b2ff9676d7c05746",
     "connectionParameters": {
       "sku": "Enterprise",
       "workFlowCallbackUri": "https://prod-21.canadacentral.logic.azure.com:443/workflows/7f61e694cd714d83a5acd17052e356fc/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=e0GTSkL3TF_fBL9ogZLDXY-w4UsPjMHyDtcTj66XYRA",
@@ -227,7 +227,7 @@
     "id": "650d44e5-f590-450c-9a4a-253595cf9bf6"
   },
   "a3625504-bf4a-40d3-a30f-e94eb3c462a4": {
-    "connectionInstanceId": "/providers/microsoft.powerapps/apis/shared_logicflows/connections/e9089eda25f04f1c8d27448e0404bd6a",
+    "connectionInstanceId": "/providers/microsoft.powerapps/apis/shared_logicflows/connections/86a3177bd9a14de78748ee507485abec",
     "connectionParameters": {
       "sku": "Enterprise",
       "workFlowCallbackUri": "https://prod-31.canadacentral.logic.azure.com:443/workflows/8cb2f3865acd40dcbdcd4816f74a6c03/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=1NkjfqgCNb7499JhmUNbFot60pi_mJVipTJmHwejwHo",
